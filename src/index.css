@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.colorTheme{
+color:  rgb(108,96,254)
+}
+.colorTheme2{
+  background-color: rgb(108,96,254);
+
+
+
+}
+
+.primaryText1{
+  color: rgb(135, 126, 126);
+}
+
+
+
