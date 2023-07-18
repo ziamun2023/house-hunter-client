@@ -5,6 +5,11 @@ import JSAlert from 'js-alert'
 import { AuthContext } from '../../../AuthProvider';
 import { Slide } from 'react-awesome-reveal';
 const AddAnewProperty = () => {
+    const [selectedOption, setSelectedOption] = useState('');
+
+    const handleOptionChange = (e) => {
+     setSelectedOption(e.target.value);
+   };
     const [startDate, setStartDate] = useState(new Date());
     const [startDate2, setStartDate2] = useState(new Date());
     console.log(startDate)
@@ -17,7 +22,7 @@ const {user}=useContext(AuthContext)
         const Email=form.Email.value
         const name=form.name.value
         const address=form.address.value
-        const city=form.city.value
+        const city=selectedOption
         const bedcount=form.bedrooms.value
         const bedrooms=parseInt(bedcount)
         const Bathroom=parseInt(form.Bathroom.value)
@@ -38,7 +43,7 @@ const {user}=useContext(AuthContext)
         .then(res=>res.json())
         .then(result=>{
            if(result.insertedId){
-            JSAlert.alert("Succesfuly account created");
+            JSAlert.alert("Succesfuly added new apartment");
            }
         })
 
@@ -78,7 +83,20 @@ const {user}=useContext(AuthContext)
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> city,</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='city'  />
+ 
+    <select className='w-[300px] rounded-md shadow-md border-2 bg-white' value={selectedOption} onChange={handleOptionChange}>
+          <option value="">Select product Category</option>
+          <option value="dhaka">Dhaka</option>
+          <option value="chittagong">Chittagong</option>
+          <option value="khulna">Khulna</option>
+          <option value="gazipu">Gazipur</option>
+          <option value="mymensingh">Mymensingh </option>
+          <option value="cumilla">Cumilla </option>
+          <option value="barisal">Barisal </option>
+          <option value="sylhet">Sylhet </option>
+          <option value="narayanganj">Narayanganj </option>
+         
+        </select>
     
 </div>
                 <div>

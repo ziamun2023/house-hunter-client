@@ -1,48 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../AuthProvider';
 import { useQuery } from '@tanstack/react-query';
-import DatePicker from "react-datepicker";
+
 import { Link, useNavigate } from 'react-router-dom';
-import Hamburger from 'hamburger-react';
+
 import { Slide } from 'react-awesome-reveal';
 import JSAlert from 'js-alert';
 const Myproperty = () => {
-    const [startDate, setStartDate] = useState(new Date());
-    const [startDate2, setStartDate2] = useState(new Date());
-const navigate=useNavigate()
-    const addNewProperty=(e)=>{
-        e.preventDefault()
-        const form=e.target 
-        const ownername=form.ownername.value
-        const Email=form.Email.value
-        const name=form.name.value
-        const address=form.address.value
-        const city=form.city.value
-        const bedcount=form.bedrooms.value
-        const bedrooms=parseInt(bedcount)
-        const Bathroom=parseInt(form.Bathroom.value)
-        const roomsize=parseInt(form.roomsize.value)
-        const picture=form.picture.value
-        const start=startDate
-        const Enddata=startDate2
-        const rent=parseInt(form.rent.value)
-        const number=form.number.value
-        const Description=form.Description.value
-       const  allInfo={Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description}
-        console.log(allInfo)
-        fetch('http://localhost:5000/postProperty',{
-            method:"POST",
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify(allInfo)
-        })
-        .then(res=>res.json())
-        .then(result=>{
-           if(result.insertedId){
-            JSAlert.alert("Succesfuly account created");
-           }
-        })
-    }
 
+const navigate=useNavigate()
+   
 
         
     
@@ -53,7 +20,6 @@ const navigate=useNavigate()
 
 
 
-    const [isOpen, setOpen] = useState(false)
     const {user}=useContext(AuthContext)
     const {data: products =[], refetch}=useQuery(['Property'],async()=>{
         const res=await fetch(`http://localhost:5000/allProperty/${user?.email}`)
@@ -125,10 +91,7 @@ const navigate=useNavigate()
       </tr>)}
     <div>
 
-    <div className={`z-30 absolute ${isOpen? 'left-[500px]' : 'left-0'} `}>
-   
-            </div>
-
+    
 
     </div>
   

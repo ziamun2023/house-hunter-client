@@ -11,6 +11,7 @@ import OwnerDashBoard from "./Pages/Dashboards/OwnerDashboard/OwnerDashBoard";
 import AddAnewProperty from "./Pages/Dashboards/OwnerDashboard/AddAnewProperty";
 import Myproperty from "./Pages/Dashboards/OwnerDashboard/Myproperty";
 import Edititems from "./Pages/Dashboards/OwnerDashboard/Edititems";
+import OwnerProfile from "./Pages/Dashboards/OwnerDashboard/OwnerProfile";
 
   export const router = createBrowserRouter([
     {
@@ -50,6 +51,11 @@ import Edititems from "./Pages/Dashboards/OwnerDashboard/Edititems";
           {
             path:'/OwnerDashBoard/edit/:email',
             element:<Edititems/>
+
+          },
+          {
+            path:'/OwnerDashBoard/profile',
+            element:<OwnerProfile/>
 
           }
         ]

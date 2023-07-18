@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { BsFillPlusCircleFill } from 'react-icons/Bs';
 import { MdOutlinePeopleAlt } from 'react-icons/Md';
 import Hamburger from 'hamburger-react'
 import { Fade, Slide } from 'react-awesome-reveal';
-import user from '../assets/user.png'
+
+import userPhoto from '../assets/user.png'
 import admin from '../assets/admin.png'
 import owner from '../assets/owner.png'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider';
 // import { Spin as Hamburger } from 'hamburger-react'
 const Navbar = () => {
+    const logOut=()=>{
+        localStorage.clear();
+       window.location.reload()
+
+    }
     const [isOpen, setOpen] = useState(false)
     const [isOpen2, setOpen2] = useState(false)
 
-
+const {user}=useContext(AuthContext)
+const exist=user?.email
     return (
         <div className='flex justify-between  '>
 
@@ -41,11 +49,11 @@ const Navbar = () => {
                   <div className='my-auto'><BsFillPlusCircleFill className='colorTheme '/></div>  <p className='primaryText1 font-medium'>Add a new property</p>
                 </div>
                <div className='hidden lg:block'>
-               <div className='flex me-10'>
+            {exist? <p onClick={logOut} className='bg-indigo-700 font-bold text-[19px] text-white m-2 px-2 cursor-pointer rounded-md'>Log out</p>:    <div className='flex me-10'>
                     {/* <p className='my-auto'><MdOutlinePeopleAlt size={20}/></p> */}
              <p className='text-gray-700   font-medium' >     <Hamburger size={30}  toggled={isOpen2} toggle={setOpen2} />  </p>
            
-                </div>
+                </div>}
                </div>
               <div className='lg:hidden block'>
               <Hamburger toggled={isOpen} toggle={setOpen} />
@@ -83,38 +91,38 @@ const Navbar = () => {
               </div>
 
           
-                <div className={`h-[600px] bg-black  bg-opacity-75 z-20 hidden lg:block  w-full rounded-r-2xl  absolute ${isOpen2===true?'-left-[39px] duration-700 top-[48px]':' -left-full top-[48px] duration-700 '} `}>
+              <div className={`h-[600px] bg-black  bg-opacity-75 z-20 hidden lg:block  w-full rounded-r-2xl  absolute ${isOpen2===true?'-left-[39px] duration-700 top-[48px]':' -left-full top-[48px] duration-700 '} `}>
+
+
+<div className='text-[15px] mt-[160px]  justify-items-center grid grid-cols-3 primaryText1 font-medium'>
+    
+    <Link to='/signUpasRent'>   <div className='grid justify-items-center w-[250px] bg-opacity-90   shadow-2xl hover:bg-indigo-100 bg-white  hover:text-white tracking-wider duration-500 text-black   mt-10 rounded-xl'>
+        <img className='w-[90px] ' src={userPhoto} alt="" />
+    <p className='text-2xl text-gray-800 px-10 py-4   text-center'>  <Fade direction='up'>sign up as  Renter</Fade></p>
+    
+        </div></Link>
+<Link to='/signupOwner'>   <div className=' grid justify-items-center w-[250px] bg-opacity-90   shadow-2xl hover:bg-indigo-100 bg-white hover:text-white tracking-wider  duration-500 text-black  mt-10 rounded-xl'>
+    <img className='w-[90px] ' src={owner} alt="" />
+    <p className='text-2xl text-gray-800 px-10 py-4   text-center'>  <Fade direction='up'>  sign up as House owner</Fade></p>
+    
+    </div></Link>
+
+<div className=' grid justify-items-center w-[250px] bg-opacity-90   shadow-2xl hover:bg-indigo-100 bg-white  hover:text-white tracking-wider duration-500 text-black  mt-10 rounded-xl'>
+<img className='w-[90px] ' src={admin} alt="" />
+<p className='text-2xl text-gray-800 px-10 py-4   text-center'>  <Fade  direction='up'>  Admin Log in</Fade></p>
+
+</div>
+<div className='grid justify-items-center bg-opacity-90    hover:bg-indigo-100 bg-white col-span-3  hover:text-white tracking-wider   duration-500 text-black w-[200px] h-[100px] mt-10 rounded-xl'>
+<p className='text-2xl text-gray-800 px-10 py-4  mt-[30px] text-center'>  <Fade  direction='up'>  Log in</Fade></p>
+</div>
+
+    
+</div>
 
 
 
-
-
-            
-                    <div className='text-[15px] mt-[160px]  justify-items-center grid grid-cols-3 primaryText1 font-medium'>
-                    
-            <Link to='/signUpasRent'>   <div className='grid justify-items-center w-[250px] bg-opacity-90   shadow-2xl hover:bg-indigo-100 bg-white  hover:text-white tracking-wider duration-500 text-black   mt-10 rounded-xl'>
-                <img className='w-[90px] ' src={user} alt="" />
-            <p className='text-2xl text-gray-800 px-10 py-4   text-center'>    <Fade direction='up'>sign up as Renter</Fade></p>
-            
-                </div></Link>
-        <Link to='/signupOwner'>   <div className=' grid justify-items-center w-[250px] bg-opacity-90   shadow-2xl hover:bg-indigo-100 bg-white hover:text-white tracking-wider  duration-500 text-black  mt-10 rounded-xl'>
-            <img className='w-[90px] ' src={owner} alt="" />
-            <p className='text-2xl text-gray-800 px-10 py-4   text-center'>  <Fade direction='up'>  sign up as House owner</Fade></p>
-            
-            </div></Link>
-        
-        <div className=' grid justify-items-center w-[250px] bg-opacity-90   shadow-2xl hover:bg-indigo-100 bg-white  hover:text-white tracking-wider duration-500 text-black  mt-10 rounded-xl'>
-        <img className='w-[90px] ' src={admin} alt="" />
-        <p className='text-2xl text-gray-800 px-10 py-4   text-center'>  <Fade  direction='up'>  Admin Log in</Fade></p>
-
-        </div>
-        <div className='grid justify-items-center bg-opacity-90    hover:bg-indigo-100 bg-white col-span-3  hover:text-white tracking-wider   duration-500 text-black w-[200px] h-[100px] mt-10 rounded-xl'>
-        <p className='text-2xl text-gray-800 px-10 py-4  mt-[30px] text-center'>  <Fade  direction='up'>  Log in</Fade></p>
-        </div>
-
-            
-    </div>
-                </div>
+    
+</div>
         
         </div>
     );

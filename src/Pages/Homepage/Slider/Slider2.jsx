@@ -9,7 +9,7 @@ const Slider2 = () => {
         <div className='lg:mx-10 mx-4 relative'>
         <img className='lg:h-[600px] h-[400px]  rounded-xl w-full object-cover' src={banner4} alt="" />
        <Slide className='absolute lg:top-0 top-12 right-[160px] lg:right-[100px]' direction='up'><img className='w-[120px] lg:w-[200px] ' src={BannerOverlay} alt="" /></Slide>
-       <Slide  className='absolute top-[230px] left-5 lg:top-[300px] lg:left-[100px]' direction='up'><div className='text-[40px]  font-bold text-left'>
+       <Slide  className='absolute hidden lg:block top-[230px] left-5 lg:top-[300px] lg:left-[100px]' direction='up'><div className='text-[40px]  font-bold text-left'>
            <p  className='text-white flex tracking-wide '>Rent Your Dream  </p>
        <p>  <p className='colorTheme'> House</p>  </p>
           </div>

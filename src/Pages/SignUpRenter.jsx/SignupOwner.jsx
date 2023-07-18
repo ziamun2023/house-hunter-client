@@ -7,6 +7,9 @@ import decor2 from '../../assets/homedecor3.png'
 import { Link, useNavigate } from 'react-router-dom';
 import JSAlert from 'js-alert'
 const SignupOwner = () => {
+    const refresh=()=>{
+        window.location.reload();
+    }
     const navigate=useNavigate()
 
   const handleSUbmit=(event)=>{
@@ -28,9 +31,13 @@ const SignupOwner = () => {
     .then(res=>res.json())
     .then(result=>{
       if(result.insertedId){
-     
+        const itemJSON = JSON.stringify(info);
+        localStorage.setItem('item', itemJSON);
+
         JSAlert.alert("Succesfuly account created");
-        navigate('/OwnerDashBoard')
+      
+        navigate('/OwnerDashBoard/profile')
+        refresh()
       }
     })
 

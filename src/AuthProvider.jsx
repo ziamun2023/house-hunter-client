@@ -3,7 +3,7 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
    
 
-    const storedItemJSON = localStorage.getItem('ownerInfo');
+    const storedItemJSON = localStorage.getItem('item');
 
         
         const user = JSON.parse(storedItemJSON);

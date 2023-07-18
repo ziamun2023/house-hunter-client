@@ -8,6 +8,9 @@ import leftArror from '../../assets/leftArror.png'
 import Slider1 from './Slider/Slider1';
 import Slider2 from './Slider/Slider2';
 import Slider3 from './Slider/Slider3';
+import AllApartment from '../../componenet/AllApartment/AllApartment';
+import Section1 from '../../componenet/section 1/Section1';
+import Section2 from '../../componenet/section 1/Section2';
 const Home = () => {
     const [isittrue,setItistrue]=useState(false)
     const [show1,setShow1]=useState(1)
@@ -36,21 +39,24 @@ const Home = () => {
     
 
     return (
-        <div className=' relative z-10 '>
+        <div className='  z-10 '>
        {show1 ==1?     <Slider3/> :""}
           {show1 ==2?   <Slider2/>:''}
        {show1 ==3?    <Slider1/> :''}
             
-           <div className='flex gap-6 absolute -bottom-10 right-0'>
+           <div className='flex gap-6 absolute lg:top-[650px] right-[30px]'>
             <div onClick={slide2}>
-<img className='w-[40px] hover:bg-slate-100 rounded-full p-2' src={leftArror} alt="" />
+<img className='w-[40px] hover:bg-slate-100 rounded-full p-2 bg-indigo-400 ' src={leftArror} alt="" />
             </div>
             <div onClick={slide1}>
-<img className='w-[40px] hover:bg-slate-100 rounded-full p-2' src={rightArror} alt="" />
+<img className='w-[40px] hover:bg-slate-100 rounded-full p-2 bg-indigo-400 ' src={rightArror} alt="" />
             </div>
 
 
            </div>
+           <Section1/>
+           <Section2></Section2>
+           <AllApartment/>
            
         </div>
     );
