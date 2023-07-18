@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import JSAlert from 'js-alert'
 import { AuthContext } from '../../../AuthProvider';
+import { Slide } from 'react-awesome-reveal';
 const AddAnewProperty = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [startDate2, setStartDate2] = useState(new Date());
@@ -51,58 +52,58 @@ const {user}=useContext(AuthContext)
 
 
     return (
-        <div>
+        <Slide direction='up'>
             <p className=' text-center text-5xl text-black'>Add property</p>
             <div>
                 <form onSubmit={addNewProperty} className='grid justify-items-center lg:grid-cols-3 gap-4' action="">
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> ownername</p>
-    <input type="text" value={user?.name} className='w-[300px] rounded-md shadow-md border-2' name='ownername'  />
+    <input type="text" value={user?.name} className='w-[300px] rounded-md shadow-md border-2 bg-white' name='ownername'  />
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> Owner Email</p>
-    <input type="text" value={user?.email} className='w-[300px] rounded-md shadow-md border-2' name='Email'  />
+    <input type="text" value={user?.email} className='w-[300px] rounded-md shadow-md border-2 bg-white' name='Email'  />
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> Name</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2' name='name'  />
+    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='name'  />
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> address</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2' name='address'  />
+    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='address'  />
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> city,</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2' name='city'  />
+    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='city'  />
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> bedrooms</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2' name='bedrooms'  />
+    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='bedrooms'  />
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> Bathroom</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2' name='Bathroom'  />
+    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='Bathroom'  />
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'>  room size</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2' name='roomsize'  />
+    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='roomsize'  />
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'>  picture,</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2' name='picture'  />
+    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='picture'  />
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> Availability data From</p>
-   <p className='w-[300px] rounded-md shadow-md border-2'> <DatePicker
+   <p className='w-[300px] rounded-md shadow-md border-2 bg-white'> <DatePicker
       
       selected={startDate}
       onChange={(date) => setStartDate(date)}
@@ -112,7 +113,7 @@ const {user}=useContext(AuthContext)
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> Availability data To</p>
   
-    <p  className='w-[300px] rounded-md shadow-md border-2'>
+    <p  className='w-[300px] rounded-md shadow-md border-2 bg-white'>
     <DatePicker
       
       selected={startDate2}
@@ -122,17 +123,17 @@ const {user}=useContext(AuthContext)
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> Rent</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2' name='rent'  /> 
+    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='rent'  /> 
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> Number</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2' name='number'  /> 
+    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='number'  /> 
     
 </div>
                 <div>
     <p className='text-gray-600 text-[20px] font-semibold'> Description</p>
-    <input type="text" className='w-[300px] rounded-md shadow-md border-2' name='Description'  /> 
+    <input type="text" className='w-[300px] rounded-md shadow-md border-2 bg-white' name='Description'  /> 
     
 </div>
                 <div>
@@ -145,7 +146,7 @@ const {user}=useContext(AuthContext)
                 </form>
             </div>
             
-        </div>
+        </Slide>
     );
 };
 

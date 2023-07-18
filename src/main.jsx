@@ -7,13 +7,26 @@ import { RouterProvider } from 'react-router-dom'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
 import  AuthProvider from './AuthProvider.jsx'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
 
-  <ParallaxProvider>
-<AuthProvider>   <RouterProvider router={router} /></AuthProvider>
+<ParallaxProvider>
+
+<AuthProvider>
+<QueryClientProvider client={queryClient}>
+  
+   <RouterProvider router={router} />  
+   </QueryClientProvider>
+
+
+</AuthProvider>
+
     </ParallaxProvider>
+
+
   
 
   </React.StrictMode>,

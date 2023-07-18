@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 const OwnerDashBoard = () => {
    
     return (
@@ -13,8 +13,8 @@ const OwnerDashBoard = () => {
  <div className='rounded-md bg-white shadow-xl  lg:mx-10 py-5 hover:bg-indigo-500 duration-500 cursor-pointer my-6'>
 <p className='lg:text-[19px] text-center'>Add property</p>
     </div></Link>
-    Myproperty
-   <Link to='OwnerDashBoard/Myproperty'>
+  
+   <Link to='/OwnerDashBoard/Myproperty'>
    <div className='rounded-md bg-white shadow-xl  lg:mx-10 py-5 hover:bg-indigo-500 duration-500 cursor-pointer my-6'>
 <p className='lg:text-[19px] text-center'>All my property</p>
     </div>

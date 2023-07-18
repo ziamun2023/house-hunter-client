@@ -10,6 +10,7 @@ import SignupOwner from "./Pages/SignUpRenter.jsx/SignupOwner";
 import OwnerDashBoard from "./Pages/Dashboards/OwnerDashboard/OwnerDashBoard";
 import AddAnewProperty from "./Pages/Dashboards/OwnerDashboard/AddAnewProperty";
 import Myproperty from "./Pages/Dashboards/OwnerDashboard/Myproperty";
+import Edititems from "./Pages/Dashboards/OwnerDashboard/Edititems";
 
   export const router = createBrowserRouter([
     {
@@ -44,6 +45,11 @@ import Myproperty from "./Pages/Dashboards/OwnerDashboard/Myproperty";
           {
             path:'/OwnerDashBoard/Myproperty',
             element:<Myproperty/>
+
+          },
+          {
+            path:'/OwnerDashBoard/edit/:email',
+            element:<Edititems/>
 
           }
         ]
