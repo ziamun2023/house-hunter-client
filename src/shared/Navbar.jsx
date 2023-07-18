@@ -97,7 +97,7 @@ const Navbar = () => {
             <p className='text-2xl text-gray-800 px-10 py-4   text-center'>    <Fade direction='up'>sign up as Renter</Fade></p>
             
                 </div></Link>
-         <Link>   <div className=' grid justify-items-center w-[250px] bg-opacity-90   shadow-2xl hover:bg-indigo-100 bg-white hover:text-white tracking-wider  duration-500 text-black  mt-10 rounded-xl'>
+        <Link to='/signupOwner'>   <div className=' grid justify-items-center w-[250px] bg-opacity-90   shadow-2xl hover:bg-indigo-100 bg-white hover:text-white tracking-wider  duration-500 text-black  mt-10 rounded-xl'>
             <img className='w-[90px] ' src={owner} alt="" />
             <p className='text-2xl text-gray-800 px-10 py-4   text-center'>  <Fade direction='up'>  sign up as House owner</Fade></p>
             

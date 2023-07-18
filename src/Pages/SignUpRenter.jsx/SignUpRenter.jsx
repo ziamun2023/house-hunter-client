@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Banner from '../../assets/signupRenterBanner.jpg'
 import swal from 'sweetalert2';
 import { Slide } from 'react-awesome-reveal';
 import decor from '../../assets/homedecor.png'
 import decor2 from '../../assets/homedecor2.png'
 import { Link } from 'react-router-dom';
+import JSAlert from 'js-alert'
+
+import { AuthContext } from '../../AuthProvider';
 const SignUpRenter = () => {
+
+  const {user}=useContext(AuthContext)
+  console.log(user)
   const handleSUbmit=(event)=>{
     event.preventDefault()
     const name =event.target.name.value
@@ -17,6 +23,7 @@ const SignUpRenter = () => {
     const info={name,email,password,role}
     console.log(info)
 
+
     fetch(`http://localhost:5000/users`,{
       method:'POST',
       headers:{'content-Type':'application/json'},
@@ -25,13 +32,11 @@ const SignUpRenter = () => {
     .then(res=>res.json())
     .then(result=>{
       if(result.insertedId){
-        // swal.fire({
-        //   title: 'success!',
-        //   text: 'Successfully Added',
-        //   icon: 'success',
-        //   confirmButtonText: 'Cool'
-        // }) 
-        alert('good')
+        // console.log(result)
+     
+        JSAlert.alert("Succesfuly your account created");
+        const itemJSON = JSON.stringify(info);
+        localStorage.setItem('ownerInfo', itemJSON);
       }
     })
 

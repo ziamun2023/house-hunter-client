@@ -6,6 +6,10 @@ import App from "./App";
 import MainLayout from "./MainLayout/MainLayout";
 import Home from "./Pages/Homepage/Home";
 import SignUpRenter from "./Pages/SignUpRenter.jsx/SignUpRenter";
+import SignupOwner from "./Pages/SignUpRenter.jsx/SignupOwner";
+import OwnerDashBoard from "./Pages/Dashboards/OwnerDashboard/OwnerDashBoard";
+import AddAnewProperty from "./Pages/Dashboards/OwnerDashboard/AddAnewProperty";
+import Myproperty from "./Pages/Dashboards/OwnerDashboard/Myproperty";
 
   export const router = createBrowserRouter([
     {
@@ -22,6 +26,27 @@ import SignUpRenter from "./Pages/SignUpRenter.jsx/SignUpRenter";
     {
         path: '/signUpasRent',
         element:<SignUpRenter/>
+    },
+    {
+        path: '/signupOwner',
+        element:<SignupOwner/>
+    },
+    
+    {
+        path: 'OwnerDashBoard',
+        element:<OwnerDashBoard/>,
+        children:[
+          {
+            path:'/OwnerDashBoard/addnewProperty',
+            element:<AddAnewProperty/>
+
+          },
+          {
+            path:'/OwnerDashBoard/Myproperty',
+            element:<Myproperty/>
+
+          }
+        ]
     },
     
   ]);
