@@ -5,6 +5,7 @@ import {
 import App from "./App";
 import MainLayout from "./MainLayout/MainLayout";
 import Home from "./Pages/Homepage/Home";
+import SignUpRenter from "./Pages/SignUpRenter.jsx/SignUpRenter";
 
   export const router = createBrowserRouter([
     {
@@ -18,4 +19,9 @@ import Home from "./Pages/Homepage/Home";
     }
       ]
     },
+    {
+        path: '/signUpasRent',
+        element:<SignUpRenter/>
+    },
+    
   ]);
