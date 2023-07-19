@@ -86,7 +86,7 @@ const exist=user?.email
 
 
                 {user?.role==='Owner'? <Link to='/OwnerDashBoard/OwnerProfile'>   <p>Dashboard</p></Link> : ""}
-                {user?.role==='Renter'? <Link to='/RenterDashboard'>   <p>Dashboard</p></Link> : ""}
+                {user?.role==='Renter'? <Link to='/RenterDashboard/MyBooking'>   <p>Dashboard</p></Link> : ""}
               
         <Link to='/signUpasRent'>  <p>sign up as Renter</p></Link>
                 <p>Sing up as House Owner</p>

@@ -15,6 +15,8 @@ import OwnerProfile from "./Pages/Dashboards/OwnerDashboard/OwnerProfile";
 import Login from "./Pages/SignUpRenter.jsx/Login";
 import RenterDashboard from "./Pages/Dashboards/RenterDashboard/RenterDashboard";
 import ShowallAPartment from "./Pages/AllAPartmentGallery/ShowallAPartment";
+import MyBooking from "./Pages/Dashboards/RenterDashboard/MyBooking";
+import RenterProfile from "./Pages/Dashboards/RenterDashboard/RenterProfile";
 
   export const router = createBrowserRouter([
     {
@@ -78,8 +80,16 @@ import ShowallAPartment from "./Pages/AllAPartmentGallery/ShowallAPartment";
         ]
     },
     {
-      path:'/RenterDashboard',
+      path:'RenterDashboard',
       element:<RenterDashboard/>,
+      children:[
+        {path:'/RenterDashboard/MyBooking',
+      element:<MyBooking/>
+    },
+        {path:'/RenterDashboard/profile',
+      element:<RenterProfile/>
+    }
+      ]
     
     }
     

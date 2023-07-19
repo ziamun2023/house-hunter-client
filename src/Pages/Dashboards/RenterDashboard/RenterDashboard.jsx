@@ -27,23 +27,18 @@ const RenterDashboard = () => {
 <div className='flex lg:flex-col gap-4  justify-center'>
     
 
- <Link to='/OwnerDashBoard/profile'>
+ <Link to='/RenterDashboard/profile'>
  <div className='rounded-md bg-white shadow-xl  lg:mx-10 lg:py-5 py-2 text-black px-2 hover:bg-indigo-500 duration-500 cursor-pointer my-6'>
 <p className='lg:text-[19px] text-center'>Profile</p>
     </div></Link>
- <Link to='/OwnerDashBoard/addnewProperty'>
- <div className='rounded-md bg-white shadow-xl  lg:mx-10 lg:py-5 py-2 text-black px-2 hover:bg-indigo-500 duration-500 cursor-pointer my-6'>
-<p className='lg:text-[19px] text-center'>Add property</p>
-    </div></Link>
+
   
-   <Link to='/OwnerDashBoard/Myproperty'>
+   <Link to='/RenterDashboard/MyBooking'>
    <div className='rounded-md bg-white shadow-xl  lg:mx-10 lg:py-5 py-2 text-black px-2 hover:bg-indigo-500 duration-500 cursor-pointer my-6'>
-<p className='lg:text-[19px] text-center'>All my property</p>
+<p className='lg:text-[19px] text-center'>All my Bookings</p>
     </div>
    </Link>
-    <div className='rounded-md bg-white shadow-xl  lg:mx-10 lg:py-5 py-2 text-black px-2 hover:bg-indigo-500 duration-500 cursor-pointer my-6'>
-<p className='lg:text-[19px] text-center'>Total renter</p>
-    </div>
+   
 <Link to='/'>    <p className='lg:text-[19px] hidden lg:block  lg:w-2/3 mx-auto rounded-lg text-center bg-black  '>Home</p></Link>
 <p onClick={logOut} className='lg:text-[19px] hidden lg:block lg:w-2/3 mx-auto rounded-lg  text-center bg-black  '>Log Out</p>
 

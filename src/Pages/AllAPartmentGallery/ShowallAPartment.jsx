@@ -12,15 +12,27 @@ import { BsSuitHeart } from 'react-icons/Bs';
 import { BsCashCoin } from 'react-icons/Bs';
 import ResuableTitle from '../../componenet/ReusableTitle/ResuableTitle';
 import Pagination from './Pagination';
+import JSAlert from 'js-alert';
 
 
 const ShowallAPartment = () => {
+
+ 
+
+    const [selectedOption, setSelectedOption] = useState('');
+
+    const handleOptionChange = (e) => {
+     setSelectedOption(e.target.value);
+   };
+   console.log(selectedOption)
+
 
     const [data,setData]=useState([])
     const [currentPage,setCurrentPage]=useState(1)
     const [postPerpage,setPostPerpage]=useState(8)
     
     const {user}=useContext(AuthContext)
+    console.log(user)
     // const {data: products =[], refetch}=useQuery(['Property'],async()=>{
     //     const res=await fetch(`http://localhost:5000/allProperty`)
     //     return res.json()
@@ -41,14 +53,73 @@ const ShowallAPartment = () => {
     //   }
       
 // console.log(dataSoruce)
-const lastPostIndex=currentPage *postPerpage
+
+const lastPostIndex=currentPage * postPerpage
 const firstPostIndex=lastPostIndex- postPerpage
 const currentPost= data.slice(firstPostIndex, lastPostIndex)
+
+const filter=(city)=>{
+    const theCity=city.tolo
+
+}
+
+
+
+// Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description
+
+const handleAddtoCart=(id)=>{
+ 
+  const item=data.find(c=>c._id===id)
+  const Bookedby=user?.email 
+  const rentername=user?.name
+  const  {Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description}=item
+  const cartitem={Bookedby,rentername,Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description}
+  if (user?.role==='Renter'){
+  fetch('http://localhost:5000/carts',{
+  
+  method: 'POST',
+  headers: {
+      'content-type': 'application/json'
+  },
+  body: JSON.stringify(cartitem)
+  })
+  .then(res=>res.json())
+  .then((data)=>{
+    if(data.insertedId){
+        JSAlert.alert("Succesfuly booked");
+    }
+   
+  })
+    
+  }
+  else{
+
+  }
+  
+    }
+
     return (
         <div className='mt-20 lg:mx-20'>
+        
           <ResuableTitle title={'All popular Apartments'} subtitle={"Find Your Best choice"}></ResuableTitle>
+<div>
 
-          <div className='grid   gap-10 lg:grid-cols-3'>
+<select className='' value={selectedOption} onChange={handleOptionChange}>
+          <option value="">Select product Category</option>
+          <option value="dhaka">Dhaka</option>
+          <option value="chittagong">Chittagong</option>
+          <option value="khulna">Khulna</option>
+          <option value="gazipu">Gazipur</option>
+          <option value="mymensingh">Mymensingh </option>
+          <option value="cumilla">Cumilla </option>
+          <option value="barisal">Barisal </option>
+          <option value="sylhet">Sylhet </option>
+          <option value="narayanganj">Narayanganj </option>
+         
+        </select>
+    
+    </div>
+          <div className='grid mt-5  gap-10 lg:grid-cols-3'>
         
           {
 currentPost.map(c=><div className='rounded-xl relative bg-white shadow-lg' key={c._id}>
@@ -91,7 +162,7 @@ currentPost.map(c=><div className='rounded-xl relative bg-white shadow-lg' key={
 </div>
          
     </div>
-    <div className='hover:bg-indigo-400 w-10 h-10 flex text-gray-800 font-semibold top-2 right-2 rounded-full  absolute'>
+    <div onClick={()=>handleAddtoCart(c?._id)} className='hover:bg-indigo-400 w-10 h-10 flex text-gray-800 font-semibold top-2 right-2 rounded-full  absolute'>
     <BsSuitHeart className='text-gray-800 p-1' size={50}/>  
          
     </div>
