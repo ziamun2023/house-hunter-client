@@ -2,14 +2,12 @@ import React, { useContext } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider';
-const OwnerDashBoard = () => {
+const RenterDashboard = () => {
     const navigate=useNavigate()
     const {user}=useContext(AuthContext)
     const logOut=()=>{
         localStorage.clear();
-     
         navigate('/')
-        window.location.reload()
 
     }
    
@@ -17,7 +15,7 @@ const OwnerDashBoard = () => {
         <div className='grid lg:grid-cols-5  grid-cols-1 relative '>
             <div className='lg:col-span-1 sticky top-0 z-20 lg:h-[760px]  rounded-xl lg:m-5 m-2 p-2 bg-gray-600'>
           <div >
-          <p className='text-white text-center text-2xl'>Admin Name</p> 
+          <p className='text-white text-center text-2xl'>Renter  Name</p> 
         <div className='flex justify-around'>
    <div>
    <p className='text-gray-900 text-center font-semibold text-3xl'>{user?.name}</p> 
@@ -59,4 +57,4 @@ const OwnerDashBoard = () => {
     );
 };
 
-export default OwnerDashBoard;
+export default RenterDashboard;

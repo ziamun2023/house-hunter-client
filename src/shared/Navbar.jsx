@@ -21,6 +21,7 @@ const Navbar = () => {
 
 const {user}=useContext(AuthContext)
 const exist=user?.email
+// console.log(user.role)
     return (
         <div className='flex justify-between  '>
 
@@ -37,6 +38,8 @@ const exist=user?.email
                 <p>Listing</p>
                 <p>Blog</p>
                 <p>Contact us</p>
+                {user?.role==='Owner'? <Link to='/OwnerDashBoard/OwnerProfile'>   <p>Dashboard</p></Link> : ""}
+                {user?.role==='Renter'? <Link to='/RenterDashboard'>   <p>Dashboard</p></Link> : ""}
              </div>
 
 
@@ -80,6 +83,11 @@ const exist=user?.email
                 <p>Listing</p>
                 <p>Blog</p>
                 <p>Contact us</p>
+
+
+                {user?.role==='Owner'? <Link to='/OwnerDashBoard/OwnerProfile'>   <p>Dashboard</p></Link> : ""}
+                {user?.role==='Renter'? <Link to='/RenterDashboard'>   <p>Dashboard</p></Link> : ""}
+              
         <Link to='/signUpasRent'>  <p>sign up as Renter</p></Link>
                 <p>Sing up as House Owner</p>
                 <p>Log in</p>
@@ -112,9 +120,10 @@ const exist=user?.email
 <p className='text-2xl text-gray-800 px-10 py-4   text-center'>  <Fade  direction='up'>  Admin Log in</Fade></p>
 
 </div>
+<Link to='/login'>
 <div className='grid justify-items-center bg-opacity-90    hover:bg-indigo-100 bg-white col-span-3  hover:text-white tracking-wider   duration-500 text-black w-[200px] h-[100px] mt-10 rounded-xl'>
 <p className='text-2xl text-gray-800 px-10 py-4  mt-[30px] text-center'>  <Fade  direction='up'>  Log in</Fade></p>
-</div>
+</div></Link>
 
     
 </div>

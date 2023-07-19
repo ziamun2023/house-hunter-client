@@ -12,6 +12,8 @@ import AddAnewProperty from "./Pages/Dashboards/OwnerDashboard/AddAnewProperty";
 import Myproperty from "./Pages/Dashboards/OwnerDashboard/Myproperty";
 import Edititems from "./Pages/Dashboards/OwnerDashboard/Edititems";
 import OwnerProfile from "./Pages/Dashboards/OwnerDashboard/OwnerProfile";
+import Login from "./Pages/SignUpRenter.jsx/Login";
+import RenterDashboard from "./Pages/Dashboards/RenterDashboard/RenterDashboard";
 
   export const router = createBrowserRouter([
     {
@@ -33,6 +35,10 @@ import OwnerProfile from "./Pages/Dashboards/OwnerDashboard/OwnerProfile";
         path: '/signupOwner',
         element:<SignupOwner/>
     },
+    {
+        path: '/login',
+        element:<Login/>
+    },
     
     {
         path: 'OwnerDashBoard',
@@ -41,6 +47,11 @@ import OwnerProfile from "./Pages/Dashboards/OwnerDashboard/OwnerProfile";
           {
             path:'/OwnerDashBoard/addnewProperty',
             element:<AddAnewProperty/>
+
+          },
+          {
+            path:'/OwnerDashBoard/OwnerProfile',
+            element:<OwnerProfile/>
 
           },
           {
@@ -60,5 +71,10 @@ import OwnerProfile from "./Pages/Dashboards/OwnerDashboard/OwnerProfile";
           }
         ]
     },
+    {
+      path:'/RenterDashboard',
+      element:<RenterDashboard/>,
+    
+    }
     
   ]);

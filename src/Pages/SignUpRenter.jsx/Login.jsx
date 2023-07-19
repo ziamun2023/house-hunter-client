@@ -6,7 +6,7 @@ import decor from '../../assets/homedecor.png'
 import decor2 from '../../assets/homedecor3.png'
 import { Link, useNavigate } from 'react-router-dom';
 import JSAlert from 'js-alert'
-const SignupOwner = () => {
+const Login = () => {
     const refresh=()=>{
         window.location.reload();
     }
@@ -17,36 +17,37 @@ const SignupOwner = () => {
     const name =event.target.name.value
     const email=event.target.email.value
     const password=event.target.password.value
-    const role='Owner'
+    
   
     // const formdata= new FormData() 
-    const info={name,email,password,role}
+    const info={email,password}
     console.log(info)
 
-    fetch(`http://localhost:5000/users`,{
+    fetch(`http://localhost:5000/login`,{
       method:'POST',
       headers:{'content-Type':'application/json'},
       body:JSON.stringify(info)
     })
     .then(res=>res.json())
     .then(result=>{
+      console.log(result)
+      const stringify=JSON.stringify(result?.user)
+      localStorage.setItem('access-token', result?.token)
+      localStorage.setItem("ownerInfo", stringify )
+     console.log(result?.user?.role)
+      if(result?.user?.role==='Owner'){
+        navigate('/OwnerDashBoard')
+        refresh()
+      }
+      if(result?.user?.role==='Renter'){
+        navigate('/RenterDashboard')
+        refresh()
+      }
+ 
       
-      if(result){
-        
-        JSAlert.alert("Succesfuly your account created");
-        const itemJSON = JSON.stringify(info);
-          localStorage.setItem('ownerInfo', itemJSON);
-          localStorage.setItem('access-token', result.token)
-          navigate('/OwnerDashBoard')
-      
-          refresh()
-    console.log(result)
-       }
-       else {
-        localStorage.removeItem('access-token')
-    
-       }
+     
     })
+  
 
   
 
@@ -120,4 +121,4 @@ const SignupOwner = () => {
     );
 };
 
-export default SignupOwner;
+export default Login;

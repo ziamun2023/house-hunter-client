@@ -22,9 +22,16 @@ const navigate=useNavigate()
 
     const {user}=useContext(AuthContext)
     const {data: products =[], refetch}=useQuery(['Property'],async()=>{
-        const res=await fetch(`http://localhost:5000/allProperty/${user?.email}`)
+        const res=await fetch(`http://localhost:5000/allProperty/${user?.email}`,
+        {
+            headers:{
+           
+              authorization: `bearer ${localStorage.getItem('access-token')}`
+            },
+          })
         return res.json()
       })
+
       
 
       const handleDelete = id =>  {

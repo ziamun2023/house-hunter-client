@@ -11,6 +11,7 @@ import Slider3 from './Slider/Slider3';
 import AllApartment from '../../componenet/AllApartment/AllApartment';
 import Section1 from '../../componenet/section 1/Section1';
 import Section2 from '../../componenet/section 1/Section2';
+import Cities from '../../componenet/AllApartment/Cities';
 const Home = () => {
     const [isittrue,setItistrue]=useState(false)
     const [show1,setShow1]=useState(1)
@@ -57,6 +58,8 @@ const Home = () => {
            <Section1/>
            <Section2></Section2>
            <AllApartment/>
+           <Cities/>
+
            
         </div>
     );
