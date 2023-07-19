@@ -22,7 +22,7 @@ const navigate=useNavigate()
 
     const {user}=useContext(AuthContext)
     const {data: products =[], refetch}=useQuery(['booking'],async()=>{
-        const res=await fetch(`http://localhost:5000/favs/${user?.email}`,
+        const res=await fetch(`https://server-house-hunter.vercel.app/favs/${user?.email}`,
         {
             headers:{
            
@@ -38,7 +38,7 @@ const navigate=useNavigate()
         JSAlert.confirm("Are you sure you want to delete this file?").then(function(result) {
 
     if (result)
-    fetch(`http://localhost:5000/deleteCart/${id}`, {
+    fetch(`https://server-house-hunter.vercel.app/deleteCart/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

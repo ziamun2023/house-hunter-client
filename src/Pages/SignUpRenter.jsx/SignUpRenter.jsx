@@ -30,7 +30,7 @@ const navigate=useNavigate()
     
 
 
-    fetch(`http://localhost:5000/users`,{
+    fetch(`https://server-house-hunter.vercel.app/users`,{
       method:'POST',
       headers:{'content-Type':'application/json'},
       body:JSON.stringify(info)
@@ -122,6 +122,7 @@ const navigate=useNavigate()
         
 
 </div>
+<Link to='/login'><p>Already have an account? log in </p></Link>
             </div>
         </div>
     );

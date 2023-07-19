@@ -17,13 +17,16 @@ import { useNavigate } from 'react-router-dom';
 
 
 const ShowallAPartment = () => {
+const [searchTerm,setSearchTerm]=useState("")
 
- 
 
     const [selectedOption, setSelectedOption] = useState('');
     const [selectedOptionbed, setSelectedOptionbed] = useState('');
    
-
+    const {data: productss =[] }=useQuery(['Property'],async()=>{
+        const res=await fetch(`https://server-house-hunter.vercel.app/allProperty`)
+        return res.json()
+      })
     const handleOptionChange = (e) => {
      setSelectedOption(e.target.value);
    };
@@ -36,25 +39,22 @@ const ShowallAPartment = () => {
 const navigate=useNavigate()
 
     const [data,setData]=useState([])
-    const [filter2,setFilter2]=useState([])
+    const [filter2,setFilter2]=useState(productss)
     console.log(data)
     
     const [currentPage,setCurrentPage]=useState(1)
     const [postPerpage,setPostPerpage]=useState(8)
     
     const {user}=useContext(AuthContext)
-    console.log(user)
-    // const {data: products =[], refetch}=useQuery(['Property'],async()=>{
-    //     const res=await fetch(`http://localhost:5000/allProperty`)
-    //     return res.json()
-    //   })
+    // const rentertoCar=user?.role
+
+  
 
     useEffect(()=>{
-        fetch('http://localhost:5000/allProperty')
+        fetch('https://server-house-hunter.vercel.app/allProperty')
         .then(res=>res.json())
         .then(data=>setData(data))
     },[])
-
 
 const lastPostIndex=currentPage * postPerpage
 const firstPostIndex=lastPostIndex- postPerpage
@@ -82,7 +82,7 @@ const allApartment=()=>{
 console.log(currentPost.length)
 
 const {data: products =[], refetch}=useQuery(['booking'],async()=>{
-    const res=await fetch(`http://localhost:5000/favs/${user?.email}`,
+    const res=await fetch(`https://server-house-hunter.vercel.app/favs/${user?.email}`,
     {
         headers:{
        
@@ -94,6 +94,12 @@ const {data: products =[], refetch}=useQuery(['booking'],async()=>{
 
 console.log(products.length)
 
+const search =()=>{
+
+    const filter=productss.filter(c?.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    console.log(filter)
+
+}
 {/* <p className='text-center text-5xl text-black font-bold'>No data found</p> */}
 // Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description
 
@@ -104,39 +110,44 @@ const handleAddtoCart=(id)=>{
   const rentername=user?.name
   const  {Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description}=item
   const cartitem={Bookedby,rentername,Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description}
-  if (products.length <2 ){
-  fetch('http://localhost:5000/carts',{
-  
-  method: 'POST',
-  headers: {
-      'content-type': 'application/json'
-  },
-  body: JSON.stringify(cartitem)
-  })
-  .then(res=>res.json())
-  .then((data)=>{
-    if(data.insertedId){
-        JSAlert.alert("Succesfuly booked");
-        refetch()
-    }
-   
-  })
-    
+   if(user){
+    if (products.length <2  ){
+        fetch('https://server-house-hunter.vercel.app/carts',{
+        
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(cartitem)
+        })
+        .then(res=>res.json())
+        .then((data)=>{
+          if(data.insertedId){
+              JSAlert.alert("Succesfuly booked");
+              refetch()
+          }
+         
+        })
+          
+        }
+        else{
+          JSAlert.alert("You cant book more than 2 apartment");
+          navigate('/RenterDashboard/MyBooking')
+        }
+        
+          
   }
   else{
-    JSAlert.alert("You cant book more than 2 apartment");
-    navigate('/RenterDashboard/MyBooking')
+   navigate('/login')
   }
-  
-    }
-
+}
     return (
         <div className='mt-20 lg:mx-20'>
         
           <ResuableTitle title={'All popular Apartments'} subtitle={"Find Your Best choice"}></ResuableTitle>
 <div>
 
-<select className='bg-black' value={selectedOptionbed} onChange={handleOptionChangebed}>
+<select required className='bg-black' value={selectedOptionbed} onChange={handleOptionChangebed}>
           <option className="text-white" value="">Select bedroom</option>
           <option value='1'>1</option>
           <option value='2'>2</option>
@@ -150,7 +161,7 @@ const handleAddtoCart=(id)=>{
          
         </select>
 
-<select className='bg-black mx-2' value={selectedOption} onChange={handleOptionChange}>
+<select required className='bg-black mx-2' value={selectedOption} onChange={handleOptionChange}>
           <option className="text-white" value="">Select city</option>
           <option value="dhaka">Dhaka</option>
           <option value="chittagong">Chittagong</option>
@@ -166,7 +177,10 @@ const handleAddtoCart=(id)=>{
         </select>
         <button className='bg-red-600 py-2 px-2 rounded-lg text-white mx-5' onClick={filter}>Filter</button>
         <button className='text-2xl py-2 px-3 rounded-md bg-indigo-700 text-white font-semibold' onClick={allApartment}>All Apartment</button>
-    
+    <input type="text" onChange={(event)=>{
+        setSearchTerm(event.target.value)
+    }} />
+  
     </div>
           <div className='grid mt-5  gap-10 lg:grid-cols-3'>
         
@@ -210,14 +224,19 @@ const handleAddtoCart=(id)=>{
 </div>
          
     </div>
+
+
     <div onClick={()=>handleAddtoCart(c?._id)} className='hover:bg-indigo-400 w-10 h-10 flex text-gray-800 font-semibold top-2 right-2 rounded-full  absolute'>
-    <BsSuitHeart className='text-gray-800 p-1' size={50}/>  
-         
-    </div>
+        <BsSuitHeart className='text-gray-800 p-1' size={50}/>  
+             
+        </div>
+
 
 </div>)
 
             }
+
+          
       
 
           

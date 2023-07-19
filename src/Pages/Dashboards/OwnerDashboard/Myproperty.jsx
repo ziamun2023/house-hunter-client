@@ -22,7 +22,7 @@ const navigate=useNavigate()
 
     const {user}=useContext(AuthContext)
     const {data: products =[], refetch}=useQuery(['Property'],async()=>{
-        const res=await fetch(`http://localhost:5000/allProperty/${user?.email}`,
+        const res=await fetch(`https://server-house-hunter.vercel.app/allProperty/${user?.email}`,
         {
             headers:{
            
@@ -38,7 +38,7 @@ const navigate=useNavigate()
         JSAlert.confirm("Are you sure you want to delete this file?").then(function(result) {
 
     if (result)
-    fetch(`http://localhost:5000/deleteProperty/${id}`, {
+    fetch(`https://server-house-hunter.vercel.app/deleteProperty/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

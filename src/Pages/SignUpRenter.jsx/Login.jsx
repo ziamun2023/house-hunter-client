@@ -23,7 +23,7 @@ const Login = () => {
     const info={email,password}
     console.log(info)
 
-    fetch(`http://localhost:5000/login`,{
+    fetch(`https://server-house-hunter.vercel.app/login`,{
       method:'POST',
       headers:{'content-Type':'application/json'},
       body:JSON.stringify(info)
@@ -66,7 +66,7 @@ const Login = () => {
             <div>
 <Link to='/'>            <p className='bg-indigo-600 shadow-lg rounded-xl  py-2 text-white px-2 right-0 top-5 absolute'>Go Home</p></Link>
          
-<p className='text-[40px] text-gray-800 font-bold text-center my-10'>Sign Up As Property Owner</p>
+<p className='text-[40px] text-gray-800 font-bold text-center my-10'>Log in</p>
 <div className='text-center mx-auto  rounded-xl lg:w-[400px] h-[400px] lg:h-[500px] shadow-xl mt-20 '>
 <form onSubmit={handleSUbmit} >
           <div className=''>
@@ -116,6 +116,7 @@ const Login = () => {
         
 
 </div>
+<Link to='/signUpasRent'>Dont Have any account? Register first</Link>
             </div>
         </div>
     );

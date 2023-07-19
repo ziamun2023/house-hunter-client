@@ -6,6 +6,7 @@ import decor from '../../assets/homedecor.png'
 import decor2 from '../../assets/homedecor3.png'
 import { Link, useNavigate } from 'react-router-dom';
 import JSAlert from 'js-alert'
+
 const SignupOwner = () => {
     const refresh=()=>{
         window.location.reload();
@@ -23,7 +24,7 @@ const SignupOwner = () => {
     const info={name,email,password,role}
     console.log(info)
 
-    fetch(`http://localhost:5000/users`,{
+    fetch(`https://server-house-hunter.vercel.app/users`,{
       method:'POST',
       headers:{'content-Type':'application/json'},
       body:JSON.stringify(info)
@@ -115,6 +116,7 @@ const SignupOwner = () => {
         
 
 </div>
+<Link to='/login'><p>Already have an account? log in </p></Link>
             </div>
         </div>
     );

@@ -17,7 +17,7 @@ const AllApartment = () => {
     
     const {user}=useContext(AuthContext)
     const {data: products =[], refetch}=useQuery(['Property'],async()=>{
-        const res=await fetch(`http://localhost:5000/allProperty`)
+        const res=await fetch(`https://server-house-hunter.vercel.app/allProperty`)
         return res.json()
       })
 
@@ -69,15 +69,17 @@ products.slice(0,6).map(c=><div className='rounded-xl relative bg-white shadow-l
 </div>
          
     </div>
-    <div className='hover:bg-indigo-400 w-10 h-10 flex text-gray-800 font-semibold top-2 right-2 rounded-full  absolute'>
+
+    {user?.role==="Renter" &&  <div className='hover:bg-indigo-400 w-10 h-10 flex text-gray-800 font-semibold top-2 right-2 rounded-full  absolute'>
     <BsSuitHeart className='text-gray-800 p-1' size={50}/>  
          
-    </div>
+    </div>}
+   
 
 </div>)
             }
           </div>
-         <Link to='/showall'> <p className='text-center'>show all</p></Link>
+         <Link to='/showall'> <p className='text-center text-black text-2xl font-bold py-6'>show all</p></Link>
          
         </div>
     );
