@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProvider';
 import ResuableTitle from '../ReusableTitle/ResuableTitle';
 
@@ -10,14 +10,17 @@ import { FaRegBuilding } from 'react-icons/Fa';
 import { BsSuitHeart } from 'react-icons/Bs';
 // import { BiHeart } from 'react-icons/Bi';
 import { BsCashCoin } from 'react-icons/Bs';
-
+import { Link } from 'react-router-dom';
 const AllApartment = () => {
+
+
     
     const {user}=useContext(AuthContext)
     const {data: products =[], refetch}=useQuery(['Property'],async()=>{
         const res=await fetch(`http://localhost:5000/allProperty`)
         return res.json()
       })
+
       
 
     return (
@@ -25,7 +28,7 @@ const AllApartment = () => {
           <ResuableTitle title={'All popular Apartments'} subtitle={"Find Your Best choice"}></ResuableTitle>
 
           <div className='grid gap-10 lg:grid-cols-3'>
-            {
+          {
 products.slice(0,6).map(c=><div className='rounded-xl relative bg-white shadow-lg' key={c._id}>
     <div>
         <img className='w-[500px] h-[270px] object-cover ' src={c.picture} alt="" />
@@ -74,6 +77,7 @@ products.slice(0,6).map(c=><div className='rounded-xl relative bg-white shadow-l
 </div>)
             }
           </div>
+         <Link to='/showall'> <p>show all</p></Link>
          
         </div>
     );

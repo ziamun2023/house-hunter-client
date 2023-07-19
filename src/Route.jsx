@@ -14,6 +14,7 @@ import Edititems from "./Pages/Dashboards/OwnerDashboard/Edititems";
 import OwnerProfile from "./Pages/Dashboards/OwnerDashboard/OwnerProfile";
 import Login from "./Pages/SignUpRenter.jsx/Login";
 import RenterDashboard from "./Pages/Dashboards/RenterDashboard/RenterDashboard";
+import ShowallAPartment from "./Pages/AllAPartmentGallery/ShowallAPartment";
 
   export const router = createBrowserRouter([
     {
@@ -23,6 +24,11 @@ import RenterDashboard from "./Pages/Dashboards/RenterDashboard/RenterDashboard"
     {
         path:'/',
         element:<Home/>
+
+    },
+    {
+        path:'/showall',
+        element:<ShowallAPartment/>
 
     }
       ]
