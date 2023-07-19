@@ -13,6 +13,7 @@ import { BsCashCoin } from 'react-icons/Bs';
 import ResuableTitle from '../../componenet/ReusableTitle/ResuableTitle';
 import Pagination from './Pagination';
 import JSAlert from 'js-alert';
+import { useNavigate } from 'react-router-dom';
 
 
 const ShowallAPartment = () => {
@@ -25,7 +26,7 @@ const ShowallAPartment = () => {
      setSelectedOption(e.target.value);
    };
    console.log(selectedOption)
-
+const navigate=useNavigate()
 
     const [data,setData]=useState([])
     const [currentPage,setCurrentPage]=useState(1)
@@ -64,6 +65,19 @@ const filter=(city)=>{
 }
 
 
+const {data: products =[], refetch}=useQuery(['booking'],async()=>{
+    const res=await fetch(`http://localhost:5000/favs/${user?.email}`,
+    {
+        headers:{
+       
+          authorization: `bearer ${localStorage.getItem('access-token')}`
+        },
+      })
+    return res.json()
+  })
+
+console.log(products.length)
+
 
 // Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description
 
@@ -74,7 +88,7 @@ const handleAddtoCart=(id)=>{
   const rentername=user?.name
   const  {Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description}=item
   const cartitem={Bookedby,rentername,Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description}
-  if (user?.role==='Renter'){
+  if (products.length <2 ){
   fetch('http://localhost:5000/carts',{
   
   method: 'POST',
@@ -87,13 +101,15 @@ const handleAddtoCart=(id)=>{
   .then((data)=>{
     if(data.insertedId){
         JSAlert.alert("Succesfuly booked");
+        refetch()
     }
    
   })
     
   }
   else{
-
+    JSAlert.alert("You cant book more than 2 apartment");
+    navigate('/RenterDashboard/MyBooking')
   }
   
     }
