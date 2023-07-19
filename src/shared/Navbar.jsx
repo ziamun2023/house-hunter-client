@@ -32,10 +32,10 @@ const exist=user?.email
                   {/* menu */}
 
         
-            <div className='hidden lg:block  '>
+            <div className='hidden lg:block my-2 bg-white  '>
              <div className='flex gap-9 primaryText1 font-medium'>
-             <p>Home</p>
-                <p>Listing</p>
+             <Link to='/'>    <p>Home</p></Link>
+             <Link to='/showall'>   <p>Listing</p></Link>
                 <p>Blog</p>
                 <p>Contact us</p>
                 {user?.role==='Owner'? <Link to='/OwnerDashBoard/OwnerProfile'>   <p>Dashboard</p></Link> : ""}
@@ -48,9 +48,15 @@ const exist=user?.email
             </div>
 {/* SIgnup sign in  and add new property*/}
             <div className='flex gap-7'>
-                <div className=' flex'>
-                  <div className='my-auto'><BsFillPlusCircleFill className='colorTheme '/></div>  <p className='primaryText1 font-medium'>Add a new property</p>
-                </div>
+          
+             
+                {
+                user?.role==="Owner" &&      <Link to='/OwnerDashBoard/addnewProperty'>   <div className=' flex'>
+                <div className='my-auto'><BsFillPlusCircleFill className='colorTheme '/></div> <p className='primaryText1 font-medium'>Add a new property</p>
+             
+          
+              </div> </Link>
+               }
                <div className='hidden lg:block'>
             {exist? <p onClick={logOut} className='bg-indigo-700 font-bold text-[19px] text-white m-2 px-2 cursor-pointer rounded-md'>Log out</p>:    <div className='flex me-10'>
                     {/* <p className='my-auto'><MdOutlinePeopleAlt size={20}/></p> */}
@@ -78,9 +84,9 @@ const exist=user?.email
 
 
                 <div>
-                <div className='text-[20px] gap-9 primaryText1 font-medium'>
-             <p>Home</p>
-                <p>Listing</p>
+                <div className='text-[20px] bg-black gap-9 primaryText1 font-medium'>
+         <Link to='/'>    <p>Home</p></Link>
+             <Link to='/showall'>   <p>Listing</p></Link>
                 <p>Blog</p>
                 <p>Contact us</p>
 

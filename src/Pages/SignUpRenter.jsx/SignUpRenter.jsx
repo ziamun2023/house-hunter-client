@@ -118,7 +118,7 @@ const navigate=useNavigate()
           </div>
         </form>
         <img className='absolute w-[300px] hidden lg:block left-[600px] top-10' src={decor} alt="" />
-        <img className='absolute w-[240px] lg:left-[900px] bottom-[110px] -left-10 lg:bottom-20' src={decor2} alt="" />
+        <img className='absolute w-[240px] lg:left-[700px] bottom-[110px] -left-10 lg:bottom-20' src={decor2} alt="" />
         
 
 </div>

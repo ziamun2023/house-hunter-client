@@ -77,7 +77,7 @@ products.slice(0,6).map(c=><div className='rounded-xl relative bg-white shadow-l
 </div>)
             }
           </div>
-         <Link to='/showall'> <p>show all</p></Link>
+         <Link to='/showall'> <p className='text-center'>show all</p></Link>
          
         </div>
     );

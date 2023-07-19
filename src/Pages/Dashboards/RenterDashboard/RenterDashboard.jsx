@@ -38,6 +38,11 @@ const RenterDashboard = () => {
 <p className='lg:text-[19px] text-center'>All my Bookings</p>
     </div>
    </Link>
+   <Link to='/showall'>
+   <div className='rounded-md bg-white shadow-xl  lg:mx-10 lg:py-5 py-2 text-black px-2 hover:bg-indigo-500 duration-500 cursor-pointer my-6'>
+<p className='lg:text-[19px] text-center'>Book apartment</p>
+    </div>
+   </Link>
    
 <Link to='/'>    <p className='lg:text-[19px] hidden lg:block  lg:w-2/3 mx-auto rounded-lg text-center bg-black  '>Home</p></Link>
 <p onClick={logOut} className='lg:text-[19px] hidden lg:block lg:w-2/3 mx-auto rounded-lg  text-center bg-black  '>Log Out</p>

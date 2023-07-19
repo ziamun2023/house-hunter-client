@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Pagination = ({totalPost,postPerpage,setCurrentPage}) => {
+const Pagination = ({totalPost,postPerpage,setCurrentPage,filter}) => {
     const pages=[]
     for(let i=1 ; i <= Math.ceil(totalPost/postPerpage); i++ ){
         pages.push(i)
@@ -11,6 +11,9 @@ const Pagination = ({totalPost,postPerpage,setCurrentPage}) => {
             behavior: 'smooth', // Use "auto" for instant scrolling without smooth animation
           });
     }
+
+
+
     return (
         <div className='mt-10 text-center  '>
             {

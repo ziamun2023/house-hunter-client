@@ -23,8 +23,8 @@ const {user}=useContext(AuthContext)
         const name=form.name.value
         const address=form.address.value
         const city=selectedOption
-        const bedcount=form.bedrooms.value
-        const bedrooms=parseInt(bedcount)
+       
+        const bedrooms=form.bedrooms.value
         const Bathroom=parseInt(form.Bathroom.value)
         const roomsize=parseInt(form.roomsize.value)
         const picture=form.picture.value

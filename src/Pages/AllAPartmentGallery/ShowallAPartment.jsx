@@ -21,14 +21,24 @@ const ShowallAPartment = () => {
  
 
     const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOptionbed, setSelectedOptionbed] = useState('');
+   
 
     const handleOptionChange = (e) => {
      setSelectedOption(e.target.value);
    };
+    const handleOptionChangebed = (e) => {
+   
+        setSelectedOptionbed(e.target.value);
+   };
+
    console.log(selectedOption)
 const navigate=useNavigate()
 
     const [data,setData]=useState([])
+    const [filter2,setFilter2]=useState([])
+    console.log(data)
+    
     const [currentPage,setCurrentPage]=useState(1)
     const [postPerpage,setPostPerpage]=useState(8)
     
@@ -44,26 +54,32 @@ const navigate=useNavigate()
         .then(res=>res.json())
         .then(data=>setData(data))
     },[])
-    //   setData(products)
-    //   console.log(products)
-    //   const [dataSoruce,setDataSource]=useState(products.slice(0,10))
-    //   const fetchMoreData=()=>{
-    //     setTimeout(() => {
-    //         setDataSource(dataSoruce.conca)
-    //     }, 500);
-    //   }
-      
-// console.log(dataSoruce)
+
 
 const lastPostIndex=currentPage * postPerpage
 const firstPostIndex=lastPostIndex- postPerpage
-const currentPost= data.slice(firstPostIndex, lastPostIndex)
+const currentPost= filter2.slice(firstPostIndex, lastPostIndex)
 
-const filter=(city)=>{
-    const theCity=city.tolo
+const filter=()=>{
+
+    const theCity=selectedOption.toLowerCase()
+    const theBEd=selectedOptionbed
+  
+
+  console.log(theBEd)
+  
+
+const filterBycity=data.filter(c=>c?.city===theCity)
+const bed=filterBycity.filter(c=>c?.bedrooms===theBEd)
+
+setFilter2(bed)
 
 }
 
+const allApartment=()=>{
+    setFilter2(data)
+}
+console.log(currentPost.length)
 
 const {data: products =[], refetch}=useQuery(['booking'],async()=>{
     const res=await fetch(`http://localhost:5000/favs/${user?.email}`,
@@ -78,7 +94,7 @@ const {data: products =[], refetch}=useQuery(['booking'],async()=>{
 
 console.log(products.length)
 
-
+{/* <p className='text-center text-5xl text-black font-bold'>No data found</p> */}
 // Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description
 
 const handleAddtoCart=(id)=>{
@@ -120,25 +136,41 @@ const handleAddtoCart=(id)=>{
           <ResuableTitle title={'All popular Apartments'} subtitle={"Find Your Best choice"}></ResuableTitle>
 <div>
 
-<select className='' value={selectedOption} onChange={handleOptionChange}>
-          <option value="">Select product Category</option>
+<select className='bg-black' value={selectedOptionbed} onChange={handleOptionChangebed}>
+          <option className="text-white" value="">Select bedroom</option>
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value='5'>5 </option>
+          <option value="6">6 </option>
+          <option value="7">7 </option>
+          <option value="8">8 </option>
+          <option value="9">9 </option>
+         
+        </select>
+
+<select className='bg-black mx-2' value={selectedOption} onChange={handleOptionChange}>
+          <option className="text-white" value="">Select city</option>
           <option value="dhaka">Dhaka</option>
           <option value="chittagong">Chittagong</option>
-          <option value="khulna">Khulna</option>
+          <option value="Khulna">Khulna</option>
           <option value="gazipu">Gazipur</option>
           <option value="mymensingh">Mymensingh </option>
           <option value="cumilla">Cumilla </option>
           <option value="barisal">Barisal </option>
           <option value="sylhet">Sylhet </option>
           <option value="narayanganj">Narayanganj </option>
+          <option value="dinajpur">Dinajpur </option>
          
         </select>
+        <button className='bg-red-600 py-2 px-2 rounded-lg text-white mx-5' onClick={filter}>Filter</button>
+        <button className='text-2xl py-2 px-3 rounded-md bg-indigo-700 text-white font-semibold' onClick={allApartment}>All Apartment</button>
     
     </div>
           <div className='grid mt-5  gap-10 lg:grid-cols-3'>
         
-          {
-currentPost.map(c=><div className='rounded-xl relative bg-white shadow-lg' key={c._id}>
+          {currentPost.map(c=><div className='rounded-xl relative bg-white shadow-lg' key={c._id}>
     <div>
         <img className='w-[500px] h-[270px] object-cover ' src={c.picture} alt="" />
     </div>
@@ -184,12 +216,13 @@ currentPost.map(c=><div className='rounded-xl relative bg-white shadow-lg' key={
     </div>
 
 </div>)
+
             }
       
 
           
           </div>
-          <Pagination setCurrentPage={setCurrentPage} totalPost={data?.length}  postPerpage={postPerpage}/>
+          <Pagination setCurrentPage={setCurrentPage} filter={filter} totalPost={filter2?.length}  postPerpage={postPerpage}/>
         </div>
     );
 };
