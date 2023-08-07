@@ -30,7 +30,7 @@ const navigate=useNavigate()
     
 
 
-    fetch(`https://server-house-hunter.vercel.app/users`,{
+    fetch(`https://hunter-server-six.vercel.app/users`,{
       method:'POST',
       headers:{'content-Type':'application/json'},
       body:JSON.stringify(info)
@@ -66,11 +66,11 @@ const navigate=useNavigate()
 <p className='font-semibold text-3xl text-white'>
     Get the best property within your <span className='bg-black  rounded-md px-2'>budget</span>
 </p>
-<Slide delay={20} direction='left'><p className='text-4xl font-semibold text-white mt-5'><span className='text-indigo-600 text-[80px] font-bold'>Find</span> Your Best Apartment</p></Slide>
+<Slide delay={20} direction='left'><p className='text-4xl font-semibold text-white mt-5'><span className='text-[rgb(60,110,113)] text-[80px] font-bold'>Find</span> Your Best Apartment</p></Slide>
 </div>
             </div>
             <div>
-<Link to='/'>            <p className='bg-indigo-600 shadow-lg rounded-xl  py-2 text-white px-2 right-0 top-5 absolute'>Go Home</p></Link>
+<Link to='/'>            <p className='bg-[rgb(60,110,113)] shadow-lg rounded-xl  py-2 text-white px-2 right-0 top-5 absolute'>Go Home</p></Link>
          
 <p className='text-[40px] text-gray-800 font-bold text-center my-10'>Sign Up As Renter</p>
 <div className='text-center mx-auto  rounded-xl lg:w-[400px] h-[400px] lg:h-[500px] shadow-xl mt-20 '>
@@ -118,11 +118,11 @@ const navigate=useNavigate()
           </div>
         </form>
         <img className='absolute w-[300px] hidden lg:block left-[600px] top-10' src={decor} alt="" />
-        <img className='absolute w-[240px] lg:left-[700px] bottom-[110px] -left-10 lg:bottom-20' src={decor2} alt="" />
+        <img className='absolute w-[240px]  hidden lg:block lg:left-[700px] bottom-[110px] -left-10 lg:bottom-20' src={decor2} alt="" />
         
 
 </div>
-<Link to='/login'><p>Already have an account? log in </p></Link>
+<Link to='/login'><p className='text-black'>Already have an account? log in </p></Link>
             </div>
         </div>
     );

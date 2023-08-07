@@ -12,11 +12,11 @@ import { GiVillage } from 'react-icons/Gi';
 
 
 // import required modules
-import { Pagination } from 'swiper/modules';
+import { Pagination,Autoplay } from 'swiper/modules';
 import ResuableTitle from '../ReusableTitle/ResuableTitle';
 const Section2 = () => {
     return (
-        <div className='h-[400px] px-10 mt-20 grid grid-cols-1 lg:grid-cols-4 bg-indigo-800'>
+        <div className='h-[400px] px-10 mt-20 grid grid-cols-1 lg:grid-cols-4 bg-[rgb(60,110,113)]'>
             <div className='lg:col-span-2 mt-6'>
               <p className='text-white text-[40px] font-semibold'>Explore By property</p>
              
@@ -31,11 +31,16 @@ const Section2 = () => {
             <Swiper
         slidesPerView={3}
         spaceBetween={30}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        modules={[Autoplay,Pagination]}
         className="mySwiper"
+        
       >
         <SwiperSlide >
             <div className='bg-white  justify-items-center  h-[140px] lg:h-[300px] grid rounded-lg' >

@@ -15,7 +15,7 @@ const Pagination = ({totalPost,postPerpage,setCurrentPage,filter}) => {
 
 
     return (
-        <div className='mt-10 text-center  '>
+        <div className='mt-10 text-center mb-10 '>
             {
                 pages.map((items,index)=> <button  key={index}  onClick={()=>setCurrentPage(items)} >
               <div onClick={action}  className='mx-2 bg-black text-[20px] px-5 rounded-md '>

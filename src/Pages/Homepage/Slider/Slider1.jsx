@@ -2,7 +2,7 @@ import React from 'react';
 import banner4 from '../../../assets/banner4.jpg'
 import BannerOverlay from '../../../assets/BannerOverlay3.png'
 import { Fade, Slide } from 'react-awesome-reveal';
-
+import { Link } from 'react-router-dom';
 
 const Slider1 = () => {
     return (
@@ -13,7 +13,7 @@ const Slider1 = () => {
                 <p  className='text-white flex tracking-wide '>Discover   <span > <Slide className='colorTheme mx-2'  direction='up'>Affordable</Slide></span> Rentals Near You </p>
                </div>
               </Slide>  
-              <button className='colorTheme2 py-2 px-2 absolute lg:bottom-[100px] lg:left-[105px] bottom-2 left-4 rounded-lg text-black font-semibold '> Rent A house</button> 
+              <Link to='/showall'>   <button className='colorTheme2 py-2 px-2 absolute lg:bottom-[100px] lg:left-[105px] bottom-2 left-4 rounded-lg text-black font-semibold '> Rent A house</button> </Link>
              
         </div>
     );

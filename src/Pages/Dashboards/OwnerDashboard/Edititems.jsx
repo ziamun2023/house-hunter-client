@@ -40,7 +40,7 @@ const handleUpdate=(e)=>{
 
 
 
-    // fetch(`https://server-house-hunter.vercel.app/update/${id}`,{
+    // fetch(`https://hunter-server-six.vercel.app/update/${id}`,{
     //     method: "PUT",
     //     headers: {'Content-Type':'application/json'},
     //     body : JSON.stringify(allInfo)
@@ -55,7 +55,7 @@ const handleUpdate=(e)=>{
         
     // })
 
-    fetch(`https://server-house-hunter.vercel.app/update/${id.email}`, {
+    fetch(`https://hunter-server-six.vercel.app/update/${id.email}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ const {user}=useContext(AuthContext)
 </div>
                 <div>
    
-                <input className='bg-indigo-600 text-white rounded-lg px-2 py-2 ' type="submit" value='submit'  /> 
+                <input className='bg-[rgb(60,110,113)] text-white rounded-lg px-2 py-2 ' type="submit" value='submit'  /> 
     
 </div>
 

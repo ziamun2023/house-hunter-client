@@ -4,9 +4,12 @@ const AuthProvider = ({children}) => {
    
 const [loading,setLoading]=useState(false)
     const storedItemJSON = localStorage.getItem('ownerInfo');
+    
 
         
         const user = JSON.parse(storedItemJSON);
+ 
+  
 
         // console.log(user)
         // if(user){
@@ -36,6 +39,7 @@ const [loading,setLoading]=useState(false)
   const authInfo = {
 
     user
+  
   }
     return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
 };

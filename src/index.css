@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 
-.colorTheme{
-color:  rgb(108,96,254)
+.color1{
+color: rgb(60,110,113)
+
 }
 .colorTheme2{
   background-color: rgb(108,96,254);
@@ -17,5 +18,16 @@ color:  rgb(108,96,254)
   color: rgb(135, 126, 126);
 }
 
+.font1{
+  font-family: 'Barlow', sans-serif;
+}
 
+
+.font2{
+  font-family: 'Caveat', cursive;
+}
+
+.font3{
+  font-family: 'Hind Madurai', sans-serif;
+}
 

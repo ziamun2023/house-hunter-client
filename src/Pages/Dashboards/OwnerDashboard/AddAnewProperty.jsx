@@ -35,7 +35,7 @@ const {user}=useContext(AuthContext)
         const Description=form.Description.value
        const  allInfo={Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description}
         console.log(allInfo)
-        fetch('https://server-house-hunter.vercel.app/postProperty',{
+        fetch('https://hunter-server-six.vercel.app/postProperty',{
             method:"POST",
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify(allInfo)
@@ -156,7 +156,7 @@ const {user}=useContext(AuthContext)
 </div>
                 <div>
    
-    <input className='bg-indigo-600 text-white rounded-lg px-2 py-2 ' type="submit" value='submit'  /> 
+    <input className='bg-[rgb(60,110,113)] text-white rounded-lg px-2 py-2 ' type="submit" value='submit'  /> 
     
 </div>
 

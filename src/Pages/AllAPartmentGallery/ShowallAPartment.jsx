@@ -14,17 +14,19 @@ import ResuableTitle from '../../componenet/ReusableTitle/ResuableTitle';
 import Pagination from './Pagination';
 import JSAlert from 'js-alert';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Fade } from 'react-awesome-reveal';
 
 
 const ShowallAPartment = () => {
-const [searchTerm,setSearchTerm]=useState("")
+// const [searchTerm,setSearchTerm]=useState("")
 
 
     const [selectedOption, setSelectedOption] = useState('');
     const [selectedOptionbed, setSelectedOptionbed] = useState('');
    
     const {data: productss =[] }=useQuery(['Property'],async()=>{
-        const res=await fetch(`https://server-house-hunter.vercel.app/allProperty`)
+        const res=await fetch(`https://hunter-server-six.vercel.app/allProperty`)
         return res.json()
       })
     const handleOptionChange = (e) => {
@@ -51,7 +53,7 @@ const navigate=useNavigate()
   
 
     useEffect(()=>{
-        fetch('https://server-house-hunter.vercel.app/allProperty')
+        fetch('https://hunter-server-six.vercel.app/allProperty')
         .then(res=>res.json())
         .then(data=>setData(data))
     },[])
@@ -82,7 +84,7 @@ const allApartment=()=>{
 console.log(currentPost.length)
 
 const {data: products =[], refetch}=useQuery(['booking'],async()=>{
-    const res=await fetch(`https://server-house-hunter.vercel.app/favs/${user?.email}`,
+    const res=await fetch(`https://hunter-server-six.vercel.app/favs/${user?.email}`,
     {
         headers:{
        
@@ -112,7 +114,7 @@ const handleAddtoCart=(id)=>{
   const cartitem={Bookedby,rentername,Email,ownername,name,address,city,bedrooms,Bathroom,roomsize,picture,start,Enddata,rent,number,Description}
    if(user){
     if (products.length <2  ){
-        fetch('https://server-house-hunter.vercel.app/carts',{
+        fetch('https://hunter-server-six.vercel.app/carts',{
         
         method: 'POST',
         headers: {
@@ -177,70 +179,73 @@ const handleAddtoCart=(id)=>{
         </select>
         <button className='bg-red-600 py-2 px-2 rounded-lg text-white mx-5' onClick={filter}>Filter</button>
         <button className='text-2xl py-2 px-3 rounded-md bg-indigo-700 text-white font-semibold' onClick={allApartment}>All Apartment</button>
-    <input type="text" onChange={(event)=>{
+    {/* <input type="text" onChange={(event)=>{
         setSearchTerm(event.target.value)
-    }} />
+    }} /> */}
   
     </div>
-          <div className='grid mt-5  gap-10 lg:grid-cols-3'>
+       
+        <div className='grid mt-5  gap-10 lg:grid-cols-3'>
         
-          {currentPost.map(c=><div className='rounded-xl relative bg-white shadow-lg' key={c._id}>
-    <div>
-        <img className='w-[500px] h-[270px] object-cover ' src={c.picture} alt="" />
-    </div>
-    <div className='ms-5'>
-        <p className='text-[25px] text-gray-800 font-bold tracking-wider '>{c.name}</p>
-    <div className='flex'>
-    <GrLocation size={20} className='text-indigo-600 '/>   <p className='text-[13px] text-gray-400 font-medium tracking-wider '>{c.address}</p>
-    </div>
-    </div>
-    <div className='mx-12 grid grid-cols-3 py-4 px-6 my-3 bg-[rgb(247,246,255)] '>
-        <p className='flex'>
-    <div>
-    <LuBedDouble size={20} className='text-indigo-600 me-2'/> </div> <div className='text-gray-900'>      {c.bedrooms}</div>
-        </p>
-        <p  className='flex'>
-       <div>   <FaShower size={20} className='text-indigo-600 me-2'/> </div><div className='text-gray-900' > {c.Bathroom}
-     
-       </div>
-        </p>
-        <p  className='flex'>
-        <div>
-        <FaRegBuilding size={20} className='text-indigo-600 me-2'/></div>   <div className='text-gray-900'>
-        {c.roomsize}
-       </div>
-        </p>
+        {currentPost.map(c=><div className='rounded-xl relative bg-white shadow-lg' key={c._id}>
+  <div>
+      <img className='w-[500px] h-[270px] object-cover ' src={c.picture} alt="" />
+  </div>
+  <div className='ms-5'>
+      <p className='text-[25px] text-gray-800 font-bold tracking-wider '>{c.name}</p>
+  <div className='flex'>
+  <GrLocation size={20} className='text-[rgb(60,110,113)] '/>   <p className='text-[13px] text-gray-400 font-medium tracking-wider '>{c.address}</p>
+  </div>
+  </div>
+  <div className='mx-12 grid grid-cols-3 py-4 px-6 my-3 bg-[rgb(247,246,255)] '>
+      <p className='flex'>
+  <div>
+  <LuBedDouble size={20} className='text-[rgb(60,110,113)] me-2'/> </div> <div className='text-gray-900'>      {c.bedrooms}</div>
+      </p>
+      <p  className='flex'>
+     <div>   <FaShower size={20} className='text-[rgb(60,110,113)] me-2'/> </div><div className='text-gray-900' > {c.Bathroom}
+   
+     </div>
+      </p>
+      <p  className='flex'>
+      <div>
+      <FaRegBuilding size={20} className='text-[rgb(60,110,113)] me-2'/></div>   <div className='text-gray-900'>
+      {c.roomsize}
+     </div>
+      </p>
 
-     
-    </div>
-    <div className='mx-2 flex justify-around my-5'>
-        <p className='text-gray-600'><b>Listed on:</b>{c?.date}</p>
-        <p className='text-gray-600'><b>Owner :</b>{c?.ownername}</p>
-        <p className='text-gray-600'><b>View details </b></p>
-    </div>
-    <div className='bg-indigo-400 w-20 h-13 flex text-gray-800 font-semibold top-2 left-2 rounded-xl  absolute'>
+   
+  </div>
+  <div className='mx-2 flex justify-around my-5'>
+      <p className='text-gray-600'><b>Listed on:</b>{c?.date}</p>
+      <p className='text-gray-600'><b>Owner :</b>{c?.ownername}</p>
+      <p className='text-gray-600'><b>View details </b></p>
+     {!user &&  <Link to='/login'><p className='text-gray-600'><b>Book  </b></p></Link>}
+  </div>
+  <div className='bg-indigo-400 w-20 h-13 flex text-gray-800 font-semibold top-2 left-2 rounded-xl  absolute'>
 <div>     <BsCashCoin className='pt-2' size={24}/>  </div> <div className=''> 
 {c.rent}
 </div>
-         
-    </div>
+       
+  </div>
 
 
-    <div onClick={()=>handleAddtoCart(c?._id)} className='hover:bg-indigo-400 w-10 h-10 flex text-gray-800 font-semibold top-2 right-2 rounded-full  absolute'>
-        <BsSuitHeart className='text-gray-800 p-1' size={50}/>  
-             
-        </div>
+{   user?.role==="Renter" &&   <div onClick={()=>handleAddtoCart(c?._id)} className='w-10 h-10 flex text-gray-800 font-semibold top-2 right-2 rounded-2xl  absolute'>
+      <BsSuitHeart className='text-gray-800 ' size={50}/>  <p className='text-black bg-white rounded-md'>Book </p>
+           
+      </div>}
 
 
 </div>)
 
-            }
+          }
 
-          
-      
+        
+    
 
-          
-          </div>
+        
+        </div>
+   
           <Pagination setCurrentPage={setCurrentPage} filter={filter} totalPost={filter2?.length}  postPerpage={postPerpage}/>
         </div>
     );

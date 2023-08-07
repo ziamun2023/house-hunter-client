@@ -23,7 +23,7 @@ const Login = () => {
     const info={email,password}
     console.log(info)
 
-    fetch(`https://server-house-hunter.vercel.app/login`,{
+    fetch(`https://hunter-server-six.vercel.app/login`,{
       method:'POST',
       headers:{'content-Type':'application/json'},
       body:JSON.stringify(info)
@@ -60,11 +60,11 @@ const Login = () => {
 <p className='font-semibold text-3xl text-white'>
     Earn More money<span className='bg-black  rounded-md px-2'> Selling </span> your house
 </p>
-<Slide delay={20} direction='left'><p className='text-4xl font-semibold text-white mt-5'><span className='text-indigo-600 text-[80px] font-bold'>Get</span> security </p></Slide>
+<Slide delay={20} direction='left'><p className='text-4xl font-semibold text-white mt-5'><span className='text-[rgb(60,110,113)] text-[80px] font-bold'>Get</span> security </p></Slide>
 </div>
             </div>
             <div>
-<Link to='/'>            <p className='bg-indigo-600 shadow-lg rounded-xl  py-2 text-white px-2 right-0 top-5 absolute'>Go Home</p></Link>
+<Link to='/'>            <p className='bg-[rgb(60,110,113)] shadow-lg rounded-xl  py-2 text-white px-2 right-0 top-5 absolute'>Go Home</p></Link>
          
 <p className='text-[40px] text-gray-800 font-bold text-center my-10'>Log in</p>
 <div className='text-center mx-auto  rounded-xl lg:w-[400px] h-[400px] lg:h-[500px] shadow-xl mt-20 '>
@@ -116,7 +116,7 @@ const Login = () => {
         
 
 </div>
-<Link to='/signUpasRent'>Dont Have any account? Register first</Link>
+<Link to='/signUpasRent'><p  className='text-black'>Dont Have any account? Register first</p> </Link>
             </div>
         </div>
     );

@@ -22,7 +22,7 @@ const navigate=useNavigate()
 
     const {user}=useContext(AuthContext)
     const {data: products =[], refetch}=useQuery(['Property'],async()=>{
-        const res=await fetch(`https://server-house-hunter.vercel.app/allProperty/${user?.email}`,
+        const res=await fetch(`https://hunter-server-six.vercel.app/allProperty/${user?.email}`,
         {
             headers:{
            
@@ -38,7 +38,7 @@ const navigate=useNavigate()
         JSAlert.confirm("Are you sure you want to delete this file?").then(function(result) {
 
     if (result)
-    fetch(`https://server-house-hunter.vercel.app/deleteProperty/${id}`, {
+    fetch(`https://hunter-server-six.vercel.app/deleteProperty/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())
@@ -83,7 +83,7 @@ const navigate=useNavigate()
       </tr>
     </thead> 
     <tbody>
-     {products.map((item,index)=> <tr key={item.id}>
+     {products?.map((item,index)=> <tr key={item.id}>
         <th>{index+1}</th> 
         <td className='text-black'>{item?.name}</td> 
         <td className='text-black'>{item?.roomsize}</td> 

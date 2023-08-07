@@ -8,7 +8,7 @@ const Section1 = () => {
     return (
         <div className=''> 
            <div className='mt-10 mx-auto'>
-     <ResuableTitle title={'How it words'} subtitle={'Follow these three steps to confirm your apartment'}></ResuableTitle>
+     <ResuableTitle title={'How it works'} subtitle={'Follow these three steps to confirm your apartment'}></ResuableTitle>
 
 
         <Slide direction='up'>
