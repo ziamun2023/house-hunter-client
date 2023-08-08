@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { IoLogoWhatsapp } from 'react-icons/Io';
 
 import './index.css'
 import { router } from './Route.jsx'
@@ -17,7 +18,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 <AuthProvider>
 <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} /> 
+  <div className='relative'>
+  <RouterProvider router={router} />
+
+  <a href="https://api.whatsapp.com/send?phone=8801861066727&text=Hello%20from%20your%20website!" target="_blank" rel="noopener noreferrer">  <p className='text-green-700 animate-bounce icon-container '><IoLogoWhatsapp size={70}/></p></a>
+
+  
+  
+  </div>
+    
+
 
    </QueryClientProvider>
 

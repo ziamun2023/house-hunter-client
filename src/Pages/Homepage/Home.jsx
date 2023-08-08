@@ -17,6 +17,8 @@ import Country from '../../componenet/Countrywise/Country';
 import { Parallax } from 'react-scroll-parallax';
 import SpacialApartment from '../../componenet/AllApartment/SpacialApartment';
 import Gallery from '../../componenet/Gallery/Gallery';
+import Testimonial from '../../componenet/testinomial/Testimonial';
+
 const Home = () => {
     // const [isittrue,setItistrue]=useState(false)
     // const [show1,setShow1]=useState(1)
@@ -46,20 +48,8 @@ const Home = () => {
 
     return (
         <div className='  z-10 '>
-       {/* {show1 ==1?     <Slider3/> :""}
-          {show1 ==2?   <Slider2/>:''}
-       {show1 ==3?    <Slider1/> :''}
-             */}
-           {/* <div className='flex gap-6 absolute lg:top-[650px] right-[30px]'>
-            <div onClick={slide2}>
-<img className='w-[40px] hover:bg-slate-100 rounded-full p-2 bg-indigo-400 ' src={leftArror} alt="" />
-            </div>
-            <div onClick={slide1}>
-<img className='w-[40px] hover:bg-slate-100 rounded-full p-2 bg-indigo-400 ' src={rightArror} alt="" />
-            </div>
-
-
-           </div> */}
+           
+     
            <Banner/>
            <Section1/>
           
@@ -70,6 +60,7 @@ const Home = () => {
            <AllApartment/>
            <SpacialApartment/>
            <Gallery/>
+           <Testimonial/>
            {/* <Cities/> */}
 
            

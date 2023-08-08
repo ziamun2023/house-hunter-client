@@ -67,7 +67,7 @@ const navigate=useNavigate()
 
     return (
         <Slide direction='up'>
-            <p className='text-5xl text-black text-center'>All Property</p>
+            <p className='text-2xl text-black text-center'>All Property</p>
        <div className="overflow-x-auto">
   <table className="table table-xs">
     <thead>

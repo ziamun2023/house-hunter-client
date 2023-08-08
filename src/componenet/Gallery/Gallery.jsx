@@ -55,10 +55,10 @@ const Gallery = () => {
  
   
   <TabPanel >
-    <div  data-aos="fade-up"
+ <div data-aos="fade-up"
 data-aos-duration="1000" >
-  <div   className='grid lg:grid-cols-3' >
-        <div className='relative group'>
+ <div   className='grid lg:grid-cols-3 justify-items-center lg:-me-0 -me-36' >
+ <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={living1} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>
       <p className='absolute top-0 group-hover:top-52 duration-500 text-white left-40'>  <BsFillSearchHeartFill size={80}/></p>
@@ -70,7 +70,6 @@ data-aos-duration="1000" >
       <p className='absolute top-0 group-hover:top-28 duration-300 text-white left-40'>  <BsFillSearchHeartFill size={80}/></p>
        </p>
         </div>
-      
         <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={living3} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>
@@ -78,7 +77,7 @@ data-aos-duration="1000" >
        </p>
         </div>
     </div>
-    <div   className='grid lg:grid-cols-3'>
+    <div  className='grid lg:grid-cols-3 justify-items-center lg:-me-0 -me-36'>
     <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={living4} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>
@@ -98,14 +97,13 @@ data-aos-duration="1000" >
        </p>
         </div>
     </div>
-    </div>
-  
+ </div>
   </TabPanel>
     
   <TabPanel >
  <div data-aos="fade-up"
 data-aos-duration="1000" >
- <div   className='grid lg:grid-cols-3' >
+ <div   className='grid lg:grid-cols-3 justify-items-center lg:-me-0 -me-36' >
  <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={Kitchimg1} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>
@@ -125,7 +123,7 @@ data-aos-duration="1000" >
        </p>
         </div>
     </div>
-    <div  className='grid lg:grid-cols-3'>
+    <div  className='grid lg:grid-cols-3 justify-items-center lg:-me-0 -me-36'>
     <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={Kitchimg4} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>
@@ -150,7 +148,7 @@ data-aos-duration="1000" >
   <TabPanel >
 <div data-aos="fade-up"
 data-aos-duration="1000" >
-<div  className='grid lg:grid-cols-3' >
+<div  className='grid lg:grid-cols-3 justify-items-center lg:-me-0 -me-36' >
 <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={img1} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>
@@ -170,7 +168,7 @@ data-aos-duration="1000" >
        </p>
         </div>
     </div>
-    <div  className='grid lg:grid-cols-3'>
+    <div  className='grid lg:grid-cols-3 justify-items-center lg:-me-0 -me-36'>
     <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={img4} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>
@@ -197,7 +195,7 @@ data-aos-duration="1000" >
   <TabPanel >
     <div data-aos="fade-up"
 data-aos-duration="1000" >
-    <div  className='grid lg:grid-cols-3' >
+    <div  className='grid lg:grid-cols-3 justify-items-center lg:-me-0 -me-36' >
     <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={gard1} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>
@@ -217,7 +215,7 @@ data-aos-duration="1000" >
        </p>
         </div>
     </div>
-    <div   className='grid lg:grid-cols-3'>
+    <div   className='grid lg:grid-cols-3 justify-items-center lg:-me-0 -me-36'>
     <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={gard4} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>
@@ -243,7 +241,7 @@ data-aos-duration="1000" >
 
  <div div data-aos="fade-up"
 data-aos-duration="1000" >
- <div  className='grid lg:grid-cols-3' >
+ <div  className='grid lg:grid-cols-3 justify-items-center lg:-me-0 -me-36' >
  <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={gard1} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>
@@ -263,7 +261,7 @@ data-aos-duration="1000" >
        </p>
         </div>
     </div>
-    <div   className='grid lg:grid-cols-3'>
+    <div   className='grid lg:grid-cols-3 justify-items-center lg:-me-0 -me-36'>
     <div className='relative group'>
             <img className='h-[450px]   w-[380px] my-5 object-cover' src={living4} alt="" />
        <p className='bg-black absolute opacity-0 duration-500  group-hover:opacity-40 top-5 w-[380px] h-[450px]'>

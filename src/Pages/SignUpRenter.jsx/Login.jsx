@@ -6,6 +6,10 @@ import decor from '../../assets/homedecor.png'
 import decor2 from '../../assets/homedecor3.png'
 import { Link, useNavigate } from 'react-router-dom';
 import JSAlert from 'js-alert'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 const Login = () => {
     const refresh=()=>{
         window.location.reload();
@@ -53,7 +57,9 @@ const Login = () => {
 
   }
     return (
-        <div className='grid lg:grid-cols-2 grid-cols-1 '>
+        <div
+        data-aos="flip-up"
+        data-aos-duration="3000" className='grid lg:grid-cols-2 grid-cols-1 '>
             <div>
 <img className='w-[600px] h-[800px] hidden lg:block'  src={Banner} alt="" />
 <div className='hidden lg:block absolute top-20'> 
@@ -112,7 +118,7 @@ const Login = () => {
           </div>
         </form>
         {/* <img className='absolute w-[300px] hidden lg:block left-[600px] top-10' src={decor} alt="" /> */}
-        <img className='absolute w-[240px] lg:left-[650px] bottom-[110px] -left-10 lg:bottom-20' src={decor2} alt="" />
+       
         
 
 </div>

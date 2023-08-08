@@ -15,7 +15,7 @@ AOS.init();
 
 const SpacialApartment = () => {
     return (
-       <div >
+      <div className='-me-28 ms-6 lg:ms-0 lg:-me-0'>
          <div data-aos="flip-up"
         data-aos-duration="2000"
          className='grid lg:grid-cols-2  justify-items-center lg:mx-[300px]'>
@@ -34,8 +34,8 @@ Your Next Home Journey Starts Here
               </p>
                 
               </div>
-              <div className='relative'>
-                <img className='w-[380px] h-[460px] overflow-hidden' src={img1} alt="" />
+              <div className='relative w-[380px] h-[460px] overflow-hidden group'>
+                <img className='w-[380px] h-[460px] overflow-hidden group-hover:scale-125  duration-700' src={img1} alt="" />
                 <div className='w-[260px] px-3 h-[110px]  bg-white absolute bottom-0'>
                     <p className=' text-[rgb(52,86,115)] mt-5  text-[15px]'  >Traditional 4 room apartment</p>
                     <div >
@@ -66,8 +66,8 @@ Your Next Home Journey Starts Here
               </div>
             </div>
             <div>
-            <div className='relative'>
-                <img className='w-[340px] h-[430px] overflow-hidden' src={img2} alt="" />
+            <div className='relative overflow-hidden group '>
+                <img className='w-[340px] h-[430px] overflow-hidden ] group-hover:scale-125  duration-700' src={img2} alt="" />
                 <div className='w-[260px] px-3 h-[110px]  bg-white absolute bottom-0'>
                     <p className=' text-[rgb(52,86,115)] mt-5  text-[15px]'  >Traditional 4 room apartment</p>
                     <div >
@@ -119,8 +119,8 @@ Your Next Home Journey Starts Here
               </p>
                 
               </div>
-              <div className='relative'>
-                <img  data-aos="fade-right"     data-aos-duration="2000" className='w-[380px] h-[460px] overflow-hidden' src={img1} alt="" />
+              <div className='relative  overflow-hidden group '>
+                <img  className='w-[380px] h-[460px] overflow-hidden group-hover:scale-125  duration-700' src={img1} alt="" />
                 <div className='w-[260px] px-3 h-[110px]  bg-white absolute bottom-0'>
                     <p className=' text-[rgb(52,86,115)] mt-5  text-[15px]'  >Traditional 4 room apartment</p>
                     <div >
@@ -151,8 +151,8 @@ Your Next Home Journey Starts Here
               </div>
             </div>
             <div>
-            <div className='relative '>
-                <img data-aos="fade-left"      data-aos-duration="2000" className='w-[340px] h-[430px] overflow-hidden' src={img2} alt="" />
+            <div className='relative   overflow-hidden group '>
+                <img className='w-[340px] h-[430px] overflow-hidden group-hover:scale-125  duration-700' src={img2} alt="" />
                 <div className='w-[260px] px-3 h-[110px]  bg-white absolute bottom-0'>
                     <p className=' text-[rgb(52,86,115)] mt-5  text-[15px]'  >Traditional 4 room apartment</p>
                     <div >

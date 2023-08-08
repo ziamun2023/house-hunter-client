@@ -2,7 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider';
 import ResuableTitle from '../ReusableTitle/ResuableTitle';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 import { GrLocation } from 'react-icons/Gr';
 import { LuBedDouble } from 'react-icons/Lu';
 import { FaShower } from 'react-icons/Fa';
@@ -88,7 +91,8 @@ const {data: items =[], refetch}=useQuery(['booking'],async()=>{
     
 
     return (
-        <div className='mt-20 text-center lg:mx-20'>
+        <div data-aos="flip-right"
+        data-aos-duration="2000" className='mt-20 text-center lg:mx-20'>
       <Slide direction='up'>    <ResuableTitle title={'All popular Apartments'} subtitle={"Find Your Best choice"}></ResuableTitle></Slide>
 
     

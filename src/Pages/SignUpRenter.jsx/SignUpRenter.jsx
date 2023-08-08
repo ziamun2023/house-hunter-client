@@ -6,7 +6,10 @@ import decor from '../../assets/homedecor.png'
 import decor2 from '../../assets/homedecor2.png'
 import { Link, useNavigate } from 'react-router-dom';
 import JSAlert from 'js-alert'
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 import { AuthContext } from '../../AuthProvider';
 const SignUpRenter = () => {
   const refresh=()=>{
@@ -59,20 +62,21 @@ const navigate=useNavigate()
 
   }
     return (
-        <div className='grid lg:grid-cols-2 grid-cols-1 '>
+        <div data-aos="flip-up"
+        data-aos-duration="3000" className='grid lg:grid-cols-2  grid-cols-1 '>
             <div>
 <img className='w-[600px] h-[800px] hidden lg:block'  src={Banner} alt="" />
 <div className='hidden lg:block absolute top-20'> 
-<p className='font-semibold text-3xl text-white'>
+<p className=' text-3xl text-white'>
     Get the best property within your <span className='bg-black  rounded-md px-2'>budget</span>
 </p>
-<Slide delay={20} direction='left'><p className='text-4xl font-semibold text-white mt-5'><span className='text-[rgb(60,110,113)] text-[80px] font-bold'>Find</span> Your Best Apartment</p></Slide>
+<Slide delay={20} direction='left'><p className='text-4xl  text-white mt-5'><span className=' text-[80px] font-bold'>Find</span> Your Best Apartment</p></Slide>
 </div>
             </div>
-            <div>
+            <div className='lg:-ms-[240px]'>
 <Link to='/'>            <p className='bg-[rgb(60,110,113)] shadow-lg rounded-xl  py-2 text-white px-2 right-0 top-5 absolute'>Go Home</p></Link>
          
-<p className='text-[40px] text-gray-800 font-bold text-center my-10'>Sign Up As Renter</p>
+<p className='text-[40px] text-gray-800  text-center my-10'>Sign Up As Renter</p>
 <div className='text-center mx-auto  rounded-xl lg:w-[400px] h-[400px] lg:h-[500px] shadow-xl mt-20 '>
 <form onSubmit={handleSUbmit} >
           <div className=''>
@@ -82,7 +86,7 @@ const navigate=useNavigate()
                 type='text'
                 name='name'
                 placeholder='Enter Your Name Here'
-                className='border-2 rounded-lg bg-white  py-2 px-3 shadow-lg'
+                className='border-2  bg-white  py-2 px-3 '
               />
             </div>
          
@@ -94,7 +98,7 @@ const navigate=useNavigate()
             
                 required
                 placeholder='Enter Your Email Here'
-                className='border-2 rounded-lg bg-white  py-2 px-3 shadow-lg'
+                className='border-2  bg-white  py-2 px-3 '
               />
             </div>
    
@@ -106,23 +110,25 @@ const navigate=useNavigate()
                 name='password'
                 required
                 placeholder='*******'
-                className='border-2 rounded-lg bg-white  py-2 px-3 shadow-lg'
+                className='border-2  bg-white  py-2 px-3 '
               />
             </div>
           </div>
 
           <div>
           
-        <input type="submit" className='border-2 rounded-lg mt-5 bg-white  py-2 px-3 shadow-lg' value='Submit' />
+        <input type="submit" className='border-2  mt-5 bg-white  py-2 px-20 shadow-lg' value='Submit' />
        
           </div>
         </form>
-        <img className='absolute w-[300px] hidden lg:block left-[600px] top-10' src={decor} alt="" />
-        <img className='absolute w-[240px]  hidden lg:block lg:left-[700px] bottom-[110px] -left-10 lg:bottom-20' src={decor2} alt="" />
+        <div className='lg:my-10'>
+<Link to='/login'><p className='text-black'>Already have an account? log in </p></Link>
+</div>
         
 
 </div>
-<Link to='/login'><p className='text-black'>Already have an account? log in </p></Link>
+
+
             </div>
         </div>
     );
