@@ -16,8 +16,8 @@ import { Pagination,Autoplay } from 'swiper/modules';
 import ResuableTitle from '../ReusableTitle/ResuableTitle';
 const Section2 = () => {
     return (
-        <div className='h-[400px] px-10 mt-20 grid grid-cols-1 lg:grid-cols-4 bg-[rgb(60,110,113)]'>
-            <div className='lg:col-span-2 mt-6'>
+        <div className='h-[400px] lg:w-[1200px]  lg:px-10 mt-20 grid grid-cols-1 rounded-r-xl lg:grid-cols-2 bg-[rgb(60,110,113)]'>
+            <div className=' mt-6'>
               <p className='text-white text-[40px] font-semibold'>Explore By property</p>
              
            <div className='flex gap-10 mt-6'>
@@ -27,7 +27,7 @@ const Section2 = () => {
            <p className='text-gray-200 text-[20px] mt-5'>Experience Hassle-Free Renting: Your Gateway to Quality Homes</p>
 
             </div>
-            <div className=' lg:col-span-2 my-auto'>
+            <div className='  my-auto'>
             <Swiper
         slidesPerView={3}
         spaceBetween={30}

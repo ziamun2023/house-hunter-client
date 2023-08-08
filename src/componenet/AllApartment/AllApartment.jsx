@@ -88,23 +88,25 @@ const {data: items =[], refetch}=useQuery(['booking'],async()=>{
     
 
     return (
-        <div className='mt-20 lg:mx-20'>
+        <div className='mt-20 text-center lg:mx-20'>
       <Slide direction='up'>    <ResuableTitle title={'All popular Apartments'} subtitle={"Find Your Best choice"}></ResuableTitle></Slide>
 
     
-       <div className='grid gap-10 lg:grid-cols-3'>
+       <div className='grid gap-10 justify-self-center lg:mx-20 ms-20 lg:ms-0 -me-14 lg:-me-0   lg:grid-cols-3'>
           {
-products.slice(0,6).map(c=><div className='rounded-xl  h-[500px] grid grid-rows-4 group relative bg-white shadow-lg' key={c._id}>
-    <div>
-        <img className='w-[500px] h-[270px] object-cover ' src={c.picture} alt="" />
+products.slice(0,6).map(c=><div className='rounded-xl relative   h-[550px] grid grid-rows-4 group  bg-white shadow-lg' key={c._id}>
+    <div className='relative overflow-hidden  h-[270px] '>
+        <img className='w-[500px] h-[270px] z-0 object-cover group-hover:scale-110 duration-500  ' src={c.picture} alt="" />
+        <p className='bg-black absolute opacity-0 group-hover:opacity-50 duration-500  z-20 top-0 w-full h-[270px]'></p>
     </div>
-    <div className='ms-5'>
+    
+    <div className='ms-5 mt-36'>
         <p className='text-[25px] text-gray-800 font-bold tracking-wider '>{c.name}</p>
     <div className='flex'>
     <GrLocation size={20} className='text-[rgb(60,110,113)] '/>   <p className='text-[13px] text-gray-400 font-medium tracking-wider '>{c.address}</p>
     </div>
     </div>
-    <div className='mx-12 mt-10 py-2 group-hover:w-[300px] duration-700 w-[0px] h-10  px-6 my-3 bg-[rgb(204,244,246)] scale-0 group-hover:scale-100'>
+    <div className='mx-12 mt-28 py-2 group-hover:w-[300px] duration-700 w-[0px] h-10  px-6 my-3 bg-[rgb(204,244,246)] scale-0 group-hover:scale-100'>
        <div className='grid grid-cols-3 duration-700  opacity-0 group-hover:opacity-100'>
        <p className='flex'>
     <div>
@@ -122,16 +124,17 @@ products.slice(0,6).map(c=><div className='rounded-xl  h-[500px] grid grid-rows-
        </div>
         </p>
        </div>
+       
 
      
     </div>
-    <div className='mx-2 flex justify-around my-5'>
+    <div className='mx-2 flex justify-around mt-16'>
         <p className='text-gray-600'><b>Listed on:</b>{c?.date}</p>
         <p className='text-gray-600'><b>Owner :</b>{c?.ownername}</p>
         <p className='text-gray-600'><b>View details </b></p>
         {!user &&  <Link to='/login'><p className='text-gray-600'><b>Book  </b></p></Link>}
     </div>
-    <div className='bg-indigo-400 w-20 h-13 flex text-gray-800 font-semibold top-2 left-2 rounded-xl  absolute'>
+    <div className='bg-[rgb(60,110,113)] w-20 h-13 flex text-gray-200 font-semibold top-2 left-2 absolute'>
 <div>     <BsCashCoin className='pt-2' size={24}/>  </div> <div className=''> 
 {c.rent}
 </div>

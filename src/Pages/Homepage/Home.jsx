@@ -15,6 +15,8 @@ import Cities from '../../componenet/AllApartment/Cities';
 import Banner from './homebanner/Banner';
 import Country from '../../componenet/Countrywise/Country';
 import { Parallax } from 'react-scroll-parallax';
+import SpacialApartment from '../../componenet/AllApartment/SpacialApartment';
+import Gallery from '../../componenet/Gallery/Gallery';
 const Home = () => {
     // const [isittrue,setItistrue]=useState(false)
     // const [show1,setShow1]=useState(1)
@@ -66,7 +68,9 @@ const Home = () => {
      
            <Section2></Section2>
            <AllApartment/>
-           <Cities/>
+           <SpacialApartment/>
+           <Gallery/>
+           {/* <Cities/> */}
 
            
         </div>
