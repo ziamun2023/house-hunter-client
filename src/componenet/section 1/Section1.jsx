@@ -10,9 +10,10 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 AOS.init();
 const Section1 = () => {
     return (
+        
         <div data-aos="fade-up"
         data-aos-duration="3000" className=''> 
-           <div className='mt-10 ms-36 lg:ms-0 mx-auto'>
+           <div className='mt-10 ms-36 justify-items-center lg:ms-0 mx-auto'>
     <div className='-ms-20 lg:-ms-0 mt-20 lg:mt-0'>
     <ResuableTitle title={'How it works'} subtitle={'Follow these three steps to confirm your apartment'}></ResuableTitle>
 

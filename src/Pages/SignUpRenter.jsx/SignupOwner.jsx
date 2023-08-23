@@ -113,6 +113,8 @@ const SignupOwner = () => {
                 placeholder='*******'
                 className='border-2  bg-white  py-2 px-3 shadow-lg'
               />
+          
+            
             </div>
           </div>
 

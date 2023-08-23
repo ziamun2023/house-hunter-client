@@ -13,6 +13,7 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 AOS.init();
 
+
 const SpacialApartment = () => {
     return (
       <div className='-me-28 ms-6 lg:ms-0 lg:-me-0'>
@@ -152,7 +153,7 @@ Your Next Home Journey Starts Here
             </div>
             <div>
             <div className='relative   overflow-hidden group '>
-                <img className='w-[340px] h-[430px] overflow-hidden group-hover:scale-125  duration-700' src={img2} alt="" />
+                <img  className='w-[340px] h-[430px] overflow-hidden group-hover:scale-125  duration-700' src={img2} alt="" />
                 <div className='w-[260px] px-3 h-[110px]  bg-white absolute bottom-0'>
                     <p className=' text-[rgb(52,86,115)] mt-5  text-[15px]'  >Traditional 4 room apartment</p>
                     <div >

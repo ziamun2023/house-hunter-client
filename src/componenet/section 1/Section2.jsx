@@ -14,9 +14,18 @@ import { GiVillage } from 'react-icons/Gi';
 // import required modules
 import { Pagination,Autoplay } from 'swiper/modules';
 import ResuableTitle from '../ReusableTitle/ResuableTitle';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 const Section2 = () => {
     return (
-        <div className='h-[400px]  lg:px-10 mt-20 grid grid-cols-1 rounded-r-xl lg:grid-cols-2 bg-[rgb(60,110,113)]'>
+        <div
+
+        data-aos="zoom-in"
+
+        
+        className='h-[400px]  lg:px-10 mt-20 grid grid-cols-1 rounded-r-xl lg:grid-cols-2 bg-[rgb(60,110,113)]'>
             <div className=' mt-6'>
               <p className='text-white text-[40px] font-semibold'>Explore By property</p>
              
